@@ -1,0 +1,20 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "claude-code-plugins",
+  "description": "Sean's Claude Code plugins",
+  "owner": {
+    "name": "Sean"
+  },
+  "plugins": [
+    {
+      "name": "docs-optimizer",
+      "source": "./plugins/docs-optimizer",
+      "description": "Optimizes documentation directories for AI agent navigation efficiency using parallel subagent reviews"
+    },
+    {
+      "name": "github-graphql-api",
+      "source": "./plugins/github-graphql-api",
+      "description": "Comprehensive GitHub GraphQL API reference and guidance for Claude Code"
+    }
+  ]
+}

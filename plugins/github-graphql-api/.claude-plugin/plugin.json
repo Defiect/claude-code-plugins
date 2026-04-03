@@ -1,0 +1,9 @@
+{
+  "name": "github-graphql-api",
+  "version": "0.1.0",
+  "description": "Comprehensive GitHub GraphQL API reference and guidance for Claude Code",
+  "author": {
+    "name": "Sean"
+  },
+  "keywords": ["github", "graphql", "api", "reference"]
+}

@@ -1,0 +1,1849 @@
+# GitHub GraphQL API — Quick Reference Index
+
+This index lists every type in the GitHub GraphQL API schema.
+Use it to find what exists, then look up details in the domain-specific
+reference files.
+
+
+## Root Queries
+
+These are the entry points for reading data.
+
+- **codeOfConduct** → `CodeOfConduct`: Look up a code of conduct by its key.
+- **codesOfConduct** → `[CodeOfConduct]`: Look up a code of conduct by its key.
+- **enterprise** → `Enterprise`: Look up an enterprise by URL slug.
+- **enterpriseAdministratorInvitation** → `EnterpriseAdministratorInvitation`: Look up a pending enterprise administrator invitation by invitee, enterprise and role.
+- **enterpriseAdministratorInvitationByToken** → `EnterpriseAdministratorInvitation`: Look up a pending enterprise administrator invitation by invitation token.
+- **enterpriseMemberInvitation** → `EnterpriseMemberInvitation`: Look up a pending enterprise unaffiliated member invitation by invitee and enterprise.
+- **enterpriseMemberInvitationByToken** → `EnterpriseMemberInvitation`: Look up a pending enterprise unaffiliated member invitation by invitation token.
+- **id** → `ID!`: ID of the object.
+- **license** → `License`: Look up an open source license by its key.
+- **licenses** → `[License]!`: Return a list of known open source licenses.
+- **marketplaceCategories** → `[MarketplaceCategory!]!`: Get alphabetically sorted list of Marketplace categories.
+- **marketplaceCategory** → `MarketplaceCategory`: Look up a Marketplace category by its slug.
+- **marketplaceListing** → `MarketplaceListing`: Look up a single Marketplace listing.
+- **marketplaceListings** → `MarketplaceListingConnection!`: Look up Marketplace listings.
+- **meta** → `GitHubMetadata!`: Return information about the GitHub instance.
+- **node** → `Node`: Fetches an object given its ID.
+- **nodes** → `[Node]!`: Lookup nodes by a list of IDs.
+- **organization** → `Organization`: Lookup a organization by login.
+- **rateLimit** → `RateLimit`: The client's rate limit information.
+- **relay** → `Query!`: Workaround for re-exposing the root query object. (Refer to
+[https://github.com/facebook/relay/issues/112](https://github.com/facebook/relay/issues/112) for more information.).
+- **repository** → `Repository`: Lookup a given repository by the owner and repository name.
+- **repositoryOwner** → `RepositoryOwner`: Lookup a repository owner (ie. either a User or an Organization) by login.
+- **resource** → `UniformResourceLocatable`: Lookup resource by a URL.
+- **search** → `SearchResultItemConnection!`: Perform a search across resources, returning a maximum of 1,000 results.
+- **securityAdvisories** → `SecurityAdvisoryConnection!`: GitHub Security Advisories.
+- **securityAdvisory** → `SecurityAdvisory`: Fetch a Security Advisory by its GHSA ID.
+- **securityVulnerabilities** → `SecurityVulnerabilityConnection!`: Software Vulnerabilities documented by GitHub Security Advisories.
+- **sponsorables** → `SponsorableItemConnection!`: Users and organizations who can be sponsored via GitHub Sponsors.
+- **topic** → `Topic`: Look up a topic by name.
+- **user** → `User`: Lookup a user by login.
+- **viewer** → `User!`: The currently authenticated user.
+
+## Mutations
+
+Total: 264 mutations.
+
+- **abortQueuedMigrations**: Clear all of a customer's queued migrations.
+- **abortRepositoryMigration**: Abort a repository migration queued or in progress.
+- **acceptEnterpriseAdministratorInvitation**: Accepts a pending invitation for a user to become an administrator of an enterprise.
+- **acceptEnterpriseMemberInvitation**: Accepts a pending invitation for a user to become an unaffiliated member of an enterprise.
+- **acceptTopicSuggestion**: Applies a suggested topic to the repository.
+- **accessUserNamespaceRepository**: Access user namespace repository for a temporary duration.
+- **addAssigneesToAssignable**: Adds assignees to an assignable object.
+- **addBlockedBy**: Adds a 'blocked by' relationship to an issue.
+- **addComment**: Adds a comment to an Issue or Pull Request.
+- **addDiscussionComment**: Adds a comment to a Discussion, possibly as a reply to another comment.
+- **addDiscussionPollVote**: Vote for an option in a discussion poll.
+- **addEnterpriseOrganizationMember**: Adds enterprise members to an organization within the enterprise.
+- **addEnterpriseSupportEntitlement**: Adds a support entitlement to an enterprise member.
+- **addLabelsToLabelable**: Adds labels to a labelable object.
+- **addProjectCard**: Adds a card to a ProjectColumn. Either `contentId` or `note` must be provided but **not** both.
+- **addProjectColumn**: Adds a column to a Project.
+- **addProjectV2DraftIssue**: Creates a new draft issue and add it to a Project.
+- **addProjectV2ItemById**: Links an existing content instance to a Project.
+- **addPullRequestReview**: Adds a review to a Pull Request.
+- **addPullRequestReviewComment**: Adds a comment to a review.
+- **addPullRequestReviewThread**: Adds a new thread to a pending Pull Request Review.
+- **addPullRequestReviewThreadReply**: Adds a reply to an existing Pull Request Review Thread.
+- **addReaction**: Adds a reaction to a subject.
+- **addStar**: Adds a star to a Starrable.
+- **addSubIssue**: Adds a sub-issue to a given issue.
+- **addUpvote**: Add an upvote to a discussion or discussion comment.
+- **addVerifiableDomain**: Adds a verifiable domain to an owning account.
+- **approveDeployments**: Approve all pending deployments under one or more environments.
+- **approveVerifiableDomain**: Approve a verifiable domain for notification delivery.
+- **archiveProjectV2Item**: Archives a ProjectV2Item.
+- **archiveRepository**: Marks a repository as archived.
+- **cancelEnterpriseAdminInvitation**: Cancels a pending invitation for an administrator to join an enterprise.
+- **cancelEnterpriseMemberInvitation**: Cancels a pending invitation for an unaffiliated member to join an enterprise.
+- **cancelSponsorship**: Cancel an active sponsorship.
+- **changeUserStatus**: Update your status on GitHub.
+- **clearLabelsFromLabelable**: Clears all labels from a labelable object.
+- **clearProjectV2ItemFieldValue**: This mutation clears the value of a field for an item in a Project. Currently
+only text, number, date, assignees, lab...
+- **cloneProject**: Creates a new project by cloning configuration from an existing project.
+- **cloneTemplateRepository**: Create a new repository with the same files and directory structure as a template repository.
+- **closeDiscussion**: Close a discussion.
+- **closeIssue**: Close an issue.
+- **closePullRequest**: Close a pull request.
+- **convertProjectCardNoteToIssue**: Convert a project note card to one associated with a newly created issue.
+- **convertProjectV2DraftIssueItemToIssue**: Converts a projectV2 draft issue item to an issue.
+- **convertPullRequestToDraft**: Converts a pull request to draft.
+- **copyProjectV2**: Copy a project.
+- **createAttributionInvitation**: Invites a user to claim reattributable data.
+- **createBranchProtectionRule**: Create a new branch protection rule.
+- **createCheckRun**: Create a check run.
+- **createCheckSuite**: Create a check suite.
+- **createCommitOnBranch**: Appends a commit to the given branch as the authenticated user.
+This mutation creates a commit whose parent is the HE...
+- **createDeployment**: Creates a new deployment event.
+- **createDeploymentStatus**: Create a deployment status.
+- **createDiscussion**: Create a discussion.
+- **createEnterpriseOrganization**: Creates an organization as part of an enterprise account. A personal access
+token used to create an organization is i...
+- **createEnvironment**: Creates an environment or simply returns it if already exists.
+- **createIpAllowListEntry**: Creates a new IP allow list entry.
+- **createIssue**: Creates a new issue.
+- **createIssueField**: Creates a new issue field.
+- **createIssueFieldValue**: Creates a new issue field value for an issue.
+- **createIssueType**: Creates a new issue type.
+- **createLabel**: Creates a new label.
+- **createLinkedBranch**: Create a branch linked to an issue.
+- **createMigrationSource**: Creates a GitHub Enterprise Importer (GEI) migration source.
+- **createProject**: Creates a new project.
+- **createProjectV2**: Creates a new project.
+- **createProjectV2Field**: Create a new project field.
+- **createProjectV2IssueField**: Create a new project issue field.
+- **createProjectV2StatusUpdate**: Creates a status update within a Project.
+- **createPullRequest**: Create a new pull request.
+- **createRef**: Create a new Git Ref.
+- **createRepository**: Create a new repository.
+- **createRepositoryCustomProperty**: Create a repository custom property.
+- **createRepositoryRuleset**: Create a repository ruleset.
+- **createSponsorsListing**: Create a GitHub Sponsors profile to allow others to sponsor you or your organization.
+- **createSponsorsTier**: Create a new payment tier for your GitHub Sponsors profile.
+- **createSponsorship**: Start a new sponsorship of a maintainer in GitHub Sponsors, or reactivate a past sponsorship.
+- **createSponsorships**: Make many sponsorships for different sponsorable users or organizations at
+once. Can only sponsor those who have a pu...
+- **createUserList**: Creates a new user list.
+- **declineTopicSuggestion**: Rejects a suggested topic for the repository.
+- **deleteBranchProtectionRule**: Delete a branch protection rule.
+- **deleteDeployment**: Deletes a deployment.
+- **deleteDiscussion**: Delete a discussion and all of its replies.
+- **deleteDiscussionComment**: Delete a discussion comment. If it has replies, wipe it instead.
+- **deleteEnvironment**: Deletes an environment.
+- **deleteIpAllowListEntry**: Deletes an IP allow list entry.
+- **deleteIssue**: Deletes an Issue object.
+- **deleteIssueComment**: Deletes an IssueComment object.
+- **deleteIssueField**: Deletes an issue field.
+- **deleteIssueFieldValue**: Deletes an issue field value from an issue.
+- **deleteIssueType**: Delete an issue type.
+- **deleteLabel**: Deletes a label.
+- **deleteLinkedBranch**: Unlink a branch from an issue.
+- **deletePackageVersion**: Delete a package version.
+- **deleteProject**: Deletes a project.
+- **deleteProjectCard**: Deletes a project card.
+- **deleteProjectColumn**: Deletes a project column.
+- **deleteProjectV2**: Delete a project.
+- **deleteProjectV2Field**: Delete a project field.
+- **deleteProjectV2Item**: Deletes an item from a Project.
+- **deleteProjectV2StatusUpdate**: Deletes a project status update.
+- **deleteProjectV2Workflow**: Deletes a project workflow.
+- **deletePullRequestReview**: Deletes a pull request review.
+- **deletePullRequestReviewComment**: Deletes a pull request review comment.
+- **deleteRef**: Delete a Git Ref.
+- **deleteRepositoryCustomProperty**: Delete a repository custom property.
+- **deleteRepositoryRuleset**: Delete a repository ruleset.
+- **deleteUserList**: Deletes a user list.
+- **deleteVerifiableDomain**: Deletes a verifiable domain.
+- **dequeuePullRequest**: Remove a pull request from the merge queue.
+- **disablePullRequestAutoMerge**: Disable auto merge on the given pull request.
+- **dismissPullRequestReview**: Dismisses an approved or rejected pull request review.
+- **dismissRepositoryVulnerabilityAlert**: Dismisses the Dependabot alert.
+- **enablePullRequestAutoMerge**: Enable the default auto-merge on a pull request.
+- **enqueuePullRequest**: Add a pull request to the merge queue.
+- **followOrganization**: Follow an organization.
+- **followUser**: Follow a user.
+- **grantEnterpriseOrganizationsMigratorRole**: Grant the migrator role to a user for all organizations under an enterprise account.
+- **grantMigratorRole**: Grant the migrator role to a user or a team.
+- **importProject**: Creates a new project by importing columns and a list of issues/PRs.
+- **inviteEnterpriseAdmin**: Invite someone to become an administrator of the enterprise.
+- **inviteEnterpriseMember**: Invite someone to become an unaffiliated member of the enterprise.
+- **linkProjectV2ToRepository**: Links a project to a repository.
+- **linkProjectV2ToTeam**: Links a project to a team.
+- **linkRepositoryToProject**: Creates a repository link for a project.
+- **lockLockable**: Lock a lockable object.
+- **markDiscussionCommentAsAnswer**: Mark a discussion comment as the chosen answer for discussions in an answerable category.
+- **markFileAsViewed**: Mark a pull request file as viewed.
+- **markProjectV2AsTemplate**: Mark a project as a template. Note that only projects which are owned by an Organization can be marked as a template.
+- **markPullRequestReadyForReview**: Marks a pull request ready for review.
+- **mergeBranch**: Merge a head into a branch.
+- **mergePullRequest**: Merge a pull request.
+- **minimizeComment**: Minimizes a comment on an Issue, Commit, Pull Request, or Gist.
+- **moveProjectCard**: Moves a project card to another place.
+- **moveProjectColumn**: Moves a project column to another place.
+- **pinEnvironment**: Pin an environment to a repository.
+- **pinIssue**: Pin an issue to a repository.
+- **pinIssueComment**: Pins an Issue Comment.
+- **promoteRepositoryCustomProperty**: Promote a repository custom property to the enterprise level.
+- **publishSponsorsTier**: Publish an existing sponsorship tier that is currently still a draft to a GitHub Sponsors profile.
+- **regenerateEnterpriseIdentityProviderRecoveryCodes**: Regenerates the identity provider recovery codes for an enterprise.
+- **regenerateVerifiableDomainToken**: Regenerates a verifiable domain's verification token.
+- **rejectDeployments**: Reject all pending deployments under one or more environments.
+- **removeAssigneesFromAssignable**: Removes assignees from an assignable object.
+- **removeBlockedBy**: Removes a 'blocked by' relationship from an issue.
+- **removeEnterpriseAdmin**: Removes an administrator from the enterprise.
+- **removeEnterpriseIdentityProvider**: Removes the identity provider from an enterprise. Owners of enterprises both
+with and without Enterprise Managed User...
+- **removeEnterpriseMember**: Completely removes a user from the enterprise.
+- **removeEnterpriseOrganization**: Removes an organization from the enterprise.
+- **removeEnterpriseSupportEntitlement**: Removes a support entitlement from an enterprise member.
+- **removeLabelsFromLabelable**: Removes labels from a Labelable object.
+- **removeOutsideCollaborator**: Removes outside collaborator from all repositories in an organization.
+- **removeReaction**: Removes a reaction from a subject.
+- **removeStar**: Removes a star from a Starrable.
+- **removeSubIssue**: Removes a sub-issue from a given issue.
+- **removeUpvote**: Remove an upvote to a discussion or discussion comment.
+- **reopenDiscussion**: Reopen a discussion.
+- **reopenIssue**: Reopen a issue.
+- **reopenPullRequest**: Reopen a pull request.
+- **reorderEnvironment**: Reorder a pinned repository environment.
+- **replaceActorsForAssignable**: Replaces all actors for assignable object.
+- **reprioritizeSubIssue**: Reprioritizes a sub-issue to a different position in the parent list.
+- **requestReviews**: Set review requests on a pull request.
+- **requestReviewsByLogin**: Set review requests on a pull request using login strings instead of IDs.
+- **rerequestCheckSuite**: Rerequests an existing check suite.
+- **resolveReviewThread**: Marks a review thread as resolved.
+- **retireSponsorsTier**: Retire a published payment tier from your GitHub Sponsors profile so it cannot be used to start new sponsorships.
+- **revertPullRequest**: Create a pull request that reverts the changes from a merged pull request.
+- **revokeEnterpriseOrganizationsMigratorRole**: Revoke the migrator role to a user for all organizations under an enterprise account.
+- **revokeMigratorRole**: Revoke the migrator role from a user or a team.
+- **setEnterpriseIdentityProvider**: Creates or updates the identity provider for an enterprise.
+- **setIssueFieldValue**: Sets the value of an IssueFieldValue.
+- **setOrganizationInteractionLimit**: Set an organization level interaction limit for an organization's public repositories.
+- **setRepositoryCustomPropertyValues**: Set repository custom property values for a repository.
+- **setRepositoryInteractionLimit**: Sets an interaction limit setting for a repository.
+- **setUserInteractionLimit**: Set a user level interaction limit for an user's public repositories.
+- **startOrganizationMigration**: Starts a GitHub Enterprise Importer organization migration.
+- **startRepositoryMigration**: Starts a GitHub Enterprise Importer (GEI) repository migration.
+- **submitPullRequestReview**: Submits a pending pull request review.
+- **transferEnterpriseOrganization**: Transfer an organization from one enterprise to another enterprise.
+- **transferIssue**: Transfer an issue to a different repository.
+- **unarchiveProjectV2Item**: Unarchives a ProjectV2Item.
+- **unarchiveRepository**: Unarchives a repository.
+- **unfollowOrganization**: Unfollow an organization.
+- **unfollowUser**: Unfollow a user.
+- **unlinkProjectV2FromRepository**: Unlinks a project from a repository.
+- **unlinkProjectV2FromTeam**: Unlinks a project to a team.
+- **unlinkRepositoryFromProject**: Deletes a repository link from a project.
+- **unlockLockable**: Unlock a lockable object.
+- **unmarkDiscussionCommentAsAnswer**: Unmark a discussion comment as the chosen answer for discussions in an answerable category.
+- **unmarkFileAsViewed**: Unmark a pull request file as viewed.
+- **unmarkIssueAsDuplicate**: Unmark an issue as a duplicate of another issue.
+- **unmarkProjectV2AsTemplate**: Unmark a project as a template.
+- **unminimizeComment**: Unminimizes a comment on an Issue, Commit, Pull Request, or Gist.
+- **unpinIssue**: Unpin a pinned issue from a repository.
+- **unpinIssueComment**: Unpins an Issue Comment.
+- **unresolveReviewThread**: Marks a review thread as unresolved.
+- **updateBranchProtectionRule**: Update a branch protection rule.
+- **updateCheckRun**: Update a check run.
+- **updateCheckSuitePreferences**: Modifies the settings of an existing check suite.
+- **updateDiscussion**: Update a discussion.
+- **updateDiscussionComment**: Update the contents of a comment on a Discussion.
+- **updateEnterpriseAdministratorRole**: Updates the role of an enterprise administrator.
+- **updateEnterpriseAllowPrivateRepositoryForkingSetting**: Sets whether private repository forks are enabled for an enterprise.
+- **updateEnterpriseDefaultRepositoryPermissionSetting**: Sets the base repository permission for organizations in an enterprise.
+- **updateEnterpriseDeployKeySetting**: Sets whether deploy keys are allowed to be created and used for an enterprise.
+- **updateEnterpriseMembersCanChangeRepositoryVisibilitySetting**: Sets whether organization members with admin permissions on a repository can change repository visibility.
+- **updateEnterpriseMembersCanCreateRepositoriesSetting**: Sets the members can create repositories setting for an enterprise.
+- **updateEnterpriseMembersCanDeleteIssuesSetting**: Sets the members can delete issues setting for an enterprise.
+- **updateEnterpriseMembersCanDeleteRepositoriesSetting**: Sets the members can delete repositories setting for an enterprise.
+- **updateEnterpriseMembersCanInviteCollaboratorsSetting**: Sets whether members can invite collaborators are enabled for an enterprise.
+- **updateEnterpriseMembersCanMakePurchasesSetting**: Sets whether or not an organization owner can make purchases.
+- **updateEnterpriseMembersCanUpdateProtectedBranchesSetting**: Sets the members can update protected branches setting for an enterprise.
+- **updateEnterpriseMembersCanViewDependencyInsightsSetting**: Sets the members can view dependency insights for an enterprise.
+- **updateEnterpriseOrganizationProjectsSetting**: Sets whether organization projects are enabled for an enterprise.
+- **updateEnterpriseOwnerOrganizationRole**: Updates the role of an enterprise owner with an organization.
+- **updateEnterpriseProfile**: Updates an enterprise's profile.
+- **updateEnterpriseRepositoryProjectsSetting**: Sets whether repository projects are enabled for a enterprise.
+- **updateEnterpriseTwoFactorAuthenticationDisallowedMethodsSetting**: Sets the two-factor authentication methods that users of an enterprise may not use.
+- **updateEnterpriseTwoFactorAuthenticationRequiredSetting**: Sets whether two factor authentication is required for all users in an enterprise.
+- **updateEnvironment**: Updates an environment.
+- **updateIpAllowListEnabledSetting**: Sets whether an IP allow list is enabled on an owner.
+- **updateIpAllowListEntry**: Updates an IP allow list entry.
+- **updateIpAllowListForInstalledAppsEnabledSetting**: Sets whether IP allow list configuration for installed GitHub Apps is enabled on an owner.
+- **updateIpAllowListUserLevelEnforcementEnabledSetting**: Sets whether IP allow list user-level enforcement is enabled on an enterprise.
+- **updateIssue**: Updates an Issue.
+- **updateIssueComment**: Updates an IssueComment object.
+- **updateIssueField**: Updates an issue field.
+- **updateIssueFieldValue**: Updates an existing issue field value for an issue.
+- **updateIssueIssueType**: Updates the issue type on an issue.
+- **updateIssueType**: Update an issue type.
+- **updateLabel**: Updates an existing label.
+- **updateNotificationRestrictionSetting**: Update the setting to restrict notifications to only verified or approved domains available to an owner.
+- **updateOrganizationAllowPrivateRepositoryForkingSetting**: Sets whether private repository forks are enabled for an organization.
+- **updateOrganizationWebCommitSignoffSetting**: Sets whether contributors are required to sign off on web-based commits for repositories in an organization.
+- **updatePatreonSponsorability**: Toggle the setting for your GitHub Sponsors profile that allows other GitHub
+accounts to sponsor you on GitHub while ...
+- **updateProject**: Updates an existing project.
+- **updateProjectCard**: Updates an existing project card.
+- **updateProjectColumn**: Updates an existing project column.
+- **updateProjectV2**: Updates an existing project.
+- **updateProjectV2Collaborators**: Update the collaborators on a team or a project.
+- **updateProjectV2DraftIssue**: Updates a draft issue within a Project.
+- **updateProjectV2Field**: Update a project field.
+- **updateProjectV2ItemFieldValue**: This mutation updates the value of a field for an item in a Project. Currently
+only single-select, text, number, date...
+- **updateProjectV2ItemPosition**: This mutation updates the position of the item in the project, where the position represents the priority of an item.
+- **updateProjectV2StatusUpdate**: Updates a status update within a Project.
+- **updatePullRequest**: Update a pull request.
+- **updatePullRequestBranch**: Merge or Rebase HEAD from upstream branch into pull request branch.
+- **updatePullRequestReview**: Updates the body of a pull request review.
+- **updatePullRequestReviewComment**: Updates a pull request review comment.
+- **updateRef**: Update a Git Ref.
+- **updateRefs**: Creates, updates and/or deletes multiple refs in a repository.
+This mutation takes a list of `RefUpdate`s and perform...
+- **updateRepository**: Update information about a repository.
+- **updateRepositoryCustomProperty**: Update a repository custom property.
+- **updateRepositoryRuleset**: Update a repository ruleset.
+- **updateRepositoryWebCommitSignoffSetting**: Sets whether contributors are required to sign off on web-based commits for a repository.
+- **updateSponsorshipPreferences**: Change visibility of your sponsorship and opt in or out of email updates from the maintainer.
+- **updateSubscription**: Updates the state for subscribable subjects.
+- **updateTeamReviewAssignment**: Updates team review assignment.
+- **updateTeamsRepository**: Update team repository.
+- **updateTopics**: Replaces the repository's topics with the given topics.
+- **updateUserList**: Updates an existing user list.
+- **updateUserListsForItem**: Updates which of the viewer's lists an item belongs to.
+- **verifyVerifiableDomain**: Verify that a verifiable domain has the expected DNS record.
+
+## Objects
+
+Total: 721 object types.
+
+- **ActorConnection** (4 fields): The connection type for Actor.
+- **ActorEdge** (2 fields): An edge in a connection.
+- **ActorLocation** (5 fields): Location information for an actor.
+- **AddedToMergeQueueEvent** (6 fields): Represents an`added_to_merge_queue`event on a given pull request.
+- **AddedToProjectEvent** (7 fields): Represents a`added_to_project`event on a given issue or pull request.
+- **AddedToProjectV2Event** (5 fields): Represents a`added_to_project_v2`event on a given issue or pull request.
+- **AnnouncementBanner** (4 fields): An announcement banner for an enterprise or organization.
+- **App** (12 fields): A GitHub App.
+- **AssignedEvent** (6 fields): Represents an`assigned`event on any assignable object.
+- **AssigneeConnection** (4 fields): The connection type for Assignee.
+- **AssigneeEdge** (2 fields): An edge in a connection.
+- **AutoMergeDisabledEvent** (7 fields): Represents a`auto_merge_disabled`event on a given pull request.
+- **AutoMergeEnabledEvent** (5 fields): Represents a`auto_merge_enabled`event on a given pull request.
+- **AutoMergeRequest** (7 fields): Represents an auto-merge request for a pull request.
+- **AutoRebaseEnabledEvent** (5 fields): Represents a`auto_rebase_enabled`event on a given pull request.
+- **AutoSquashEnabledEvent** (5 fields): Represents a`auto_squash_enabled`event on a given pull request.
+- **AutomaticBaseChangeFailedEvent** (6 fields): Represents a`automatic_base_change_failed`event on a given pull request.
+- **AutomaticBaseChangeSucceededEvent** (6 fields): Represents a`automatic_base_change_succeeded`event on a given pull request.
+- **BaseRefChangedEvent** (7 fields): Represents a`base_ref_changed`event on a given issue or pull request.
+- **BaseRefDeletedEvent** (5 fields): Represents a`base_ref_deleted`event on a given pull request.
+- **BaseRefForcePushedEvent** (7 fields): Represents a`base_ref_force_pushed`event on a given pull request.
+- **Blame** (1 fields): Represents a Git blame.
+- **BlameRange** (4 fields): Represents a range of information from a Git blame.
+- **Blob** (10 fields): Represents a Git blob.
+- **BlockedByAddedEvent** (4 fields): Represents a`blocked_by_added`event on a given issue.
+- **BlockedByRemovedEvent** (4 fields): Represents a`blocked_by_removed`event on a given issue.
+- **BlockingAddedEvent** (4 fields): Represents a`blocking_added`event on a given issue.
+- **BlockingRemovedEvent** (4 fields): Represents a`blocking_removed`event on a given issue.
+- **Bot** (8 fields): A special type of user which takes actions on behalf of GitHub Apps.
+- **BranchNamePatternParameters** (4 fields): Parameters to be used for the branch_name_pattern rule.
+- **BranchProtectionRule** (33 fields): A branch protection rule.
+- **BranchProtectionRuleConflict** (3 fields): A conflict between two branch protection rules.
+- **BranchProtectionRuleConflictConnection** (4 fields): The connection type for BranchProtectionRuleConflict.
+- **BranchProtectionRuleConflictEdge** (2 fields): An edge in a connection.
+- **BranchProtectionRuleConnection** (4 fields): The connection type for BranchProtectionRule.
+- **BranchProtectionRuleEdge** (2 fields): An edge in a connection.
+- **BypassForcePushAllowance** (3 fields): A user, team, or app who has the ability to bypass a force push requirement on a protected branch.
+- **BypassForcePushAllowanceConnection** (4 fields): The connection type for BypassForcePushAllowance.
+- **BypassForcePushAllowanceEdge** (2 fields): An edge in a connection.
+- **BypassPullRequestAllowance** (3 fields): A user, team, or app who has the ability to bypass a pull request requirement on a protected branch.
+- **BypassPullRequestAllowanceConnection** (4 fields): The connection type for BypassPullRequestAllowance.
+- **BypassPullRequestAllowanceEdge** (2 fields): An edge in a connection.
+- **CVSS** (2 fields): The Common Vulnerability Scoring System.
+- **CWE** (4 fields): A common weakness enumeration.
+- **CWEConnection** (4 fields): The connection type for CWE.
+- **CWEEdge** (2 fields): An edge in a connection.
+- **CheckAnnotation** (9 fields): A single check annotation.
+- **CheckAnnotationConnection** (4 fields): The connection type for CheckAnnotation.
+- **CheckAnnotationEdge** (2 fields): An edge in a connection.
+- **CheckAnnotationPosition** (2 fields): A character position in a check annotation.
+- **CheckAnnotationSpan** (2 fields): An inclusive pair of positions for a check annotation.
+- **CheckRun** (22 fields): A check run.
+- **CheckRunConnection** (4 fields): The connection type for CheckRun.
+- **CheckRunEdge** (2 fields): An edge in a connection.
+- **CheckRunStateCount** (2 fields): Represents a count of the state of a check run.
+- **CheckStep** (8 fields): A single check step.
+- **CheckStepConnection** (4 fields): The connection type for CheckStep.
+- **CheckStepEdge** (2 fields): An edge in a connection.
+- **CheckSuite** (17 fields): A check suite.
+- **CheckSuiteConnection** (4 fields): The connection type for CheckSuite.
+- **CheckSuiteEdge** (2 fields): An edge in a connection.
+- **ClosedEvent** (9 fields): Represents a`closed`event on any `Closable`.
+- **CodeOfConduct** (6 fields): The Code of Conduct for a repository.
+- **CodeScanningParameters** (1 fields): Choose which tools must provide code scanning results before the reference is
+updated. When configured, code scanning...
+- **CodeScanningTool** (3 fields): A tool that must provide code scanning results for this rule to pass.
+- **CommentDeletedEvent** (5 fields): Represents a`comment_deleted`event on a given issue or pull request.
+- **Commit** (45 fields): Represents a Git commit.
+- **CommitAuthorEmailPatternParameters** (4 fields): Parameters to be used for the commit_author_email_pattern rule.
+- **CommitComment** (32 fields): Represents a comment on a given Commit.
+- **CommitCommentConnection** (4 fields): The connection type for CommitComment.
+- **CommitCommentEdge** (2 fields): An edge in a connection.
+- **CommitCommentThread** (6 fields): A thread of comments on a commit.
+- **CommitConnection** (4 fields): The connection type for Commit.
+- **CommitContributionsByRepository** (4 fields): This aggregates commits made by a user within one repository.
+- **CommitEdge** (2 fields): An edge in a connection.
+- **CommitHistoryConnection** (4 fields): The connection type for Commit.
+- **CommitMessagePatternParameters** (4 fields): Parameters to be used for the commit_message_pattern rule.
+- **CommitterEmailPatternParameters** (4 fields): Parameters to be used for the committer_email_pattern rule.
+- **Comparison** (7 fields): Represents a comparison between two commit revisions.
+- **ComparisonCommitConnection** (5 fields): The connection type for Commit.
+- **ConnectedEvent** (6 fields): Represents a`connected`event on a given issue or pull request.
+- **ContributingGuidelines** (3 fields): The Contributing Guidelines for a repository.
+- **ContributionCalendar** (5 fields): A calendar of contributions made on GitHub by a user.
+- **ContributionCalendarDay** (5 fields): Represents a single day of contributions on GitHub by a user.
+- **ContributionCalendarMonth** (4 fields): A month of contributions in a user's contribution graph.
+- **ContributionCalendarWeek** (2 fields): A week of contributions in a user's contribution graph.
+- **ContributionsCollection** (38 fields): A collection of contributions made by a user, including opened issues, commits, and pull requests.
+Contributions in p...
+- **ConvertToDraftEvent** (6 fields): Represents a`convert_to_draft`event on a given pull request.
+- **ConvertedFromDraftEvent** (5 fields): Represents a`converted_from_draft`event on a given issue or pull request.
+- **ConvertedNoteToIssueEvent** (7 fields): Represents a`converted_note_to_issue`event on a given issue or pull request.
+- **ConvertedToDiscussionEvent** (4 fields): Represents a`converted_to_discussion`event on a given issue.
+- **CopilotCodeReviewParameters** (2 fields): Request Copilot code review for new pull requests automatically if the author
+has access to Copilot code review and t...
+- **CopilotEndpoints** (4 fields): Copilot endpoint information.
+- **CreatedCommitContribution** (7 fields): Represents the contribution a user made by committing to a repository.
+- **CreatedCommitContributionConnection** (4 fields): The connection type for CreatedCommitContribution.
+- **CreatedCommitContributionEdge** (2 fields): An edge in a connection.
+- **CreatedIssueContribution** (6 fields): Represents the contribution a user made on GitHub by opening an issue.
+- **CreatedIssueContributionConnection** (4 fields): The connection type for CreatedIssueContribution.
+- **CreatedIssueContributionEdge** (2 fields): An edge in a connection.
+- **CreatedPullRequestContribution** (6 fields): Represents the contribution a user made on GitHub by opening a pull request.
+- **CreatedPullRequestContributionConnection** (4 fields): The connection type for CreatedPullRequestContribution.
+- **CreatedPullRequestContributionEdge** (2 fields): An edge in a connection.
+- **CreatedPullRequestReviewContribution** (8 fields): Represents the contribution a user made by leaving a review on a pull request.
+- **CreatedPullRequestReviewContributionConnection** (4 fields): The connection type for CreatedPullRequestReviewContribution.
+- **CreatedPullRequestReviewContributionEdge** (2 fields): An edge in a connection.
+- **CreatedRepositoryContribution** (6 fields): Represents the contribution a user made on GitHub by creating a repository.
+- **CreatedRepositoryContributionConnection** (4 fields): The connection type for CreatedRepositoryContribution.
+- **CreatedRepositoryContributionEdge** (2 fields): An edge in a connection.
+- **CrossReferencedEvent** (10 fields): Represents a mention made by one issue or pull request to another.
+- **CvssSeverities** (2 fields): The Common Vulnerability Scoring System.
+- **DemilestonedEvent** (5 fields): Represents a`demilestoned`event on a given issue or pull request.
+- **DependabotUpdate** (3 fields): A Dependabot Update for a dependency in a repository.
+- **DependabotUpdateError** (3 fields): An error produced from a Dependabot Update.
+- **DependencyGraphDependency** (8 fields): A dependency manifest entry.
+- **DependencyGraphDependencyConnection** (4 fields): The connection type for DependencyGraphDependency.
+- **DependencyGraphDependencyEdge** (2 fields): An edge in a connection.
+- **DependencyGraphManifest** (8 fields): Dependency manifest for a repository.
+- **DependencyGraphManifestConnection** (4 fields): The connection type for DependencyGraphManifest.
+- **DependencyGraphManifestEdge** (2 fields): An edge in a connection.
+- **DeployKey** (7 fields): A repository deploy key.
+- **DeployKeyConnection** (4 fields): The connection type for DeployKey.
+- **DeployKeyEdge** (2 fields): An edge in a connection.
+- **DeployedEvent** (7 fields): Represents a`deployed`event on a given pull request.
+- **Deployment** (18 fields): Represents triggered deployment instance.
+- **DeploymentConnection** (4 fields): The connection type for Deployment.
+- **DeploymentEdge** (2 fields): An edge in a connection.
+- **DeploymentEnvironmentChangedEvent** (5 fields): Represents a`deployment_environment_changed`event on a given pull request.
+- **DeploymentProtectionRule** (5 fields): A protection rule.
+- **DeploymentProtectionRuleConnection** (4 fields): The connection type for DeploymentProtectionRule.
+- **DeploymentProtectionRuleEdge** (2 fields): An edge in a connection.
+- **DeploymentRequest** (5 fields): A request to deploy a workflow run to an environment.
+- **DeploymentRequestConnection** (4 fields): The connection type for DeploymentRequest.
+- **DeploymentRequestEdge** (2 fields): An edge in a connection.
+- **DeploymentReview** (6 fields): A deployment review.
+- **DeploymentReviewConnection** (4 fields): The connection type for DeploymentReview.
+- **DeploymentReviewEdge** (2 fields): An edge in a connection.
+- **DeploymentReviewerConnection** (4 fields): The connection type for DeploymentReviewer.
+- **DeploymentReviewerEdge** (2 fields): An edge in a connection.
+- **DeploymentStatus** (10 fields): Describes the status of a given deployment attempt.
+- **DeploymentStatusConnection** (4 fields): The connection type for DeploymentStatus.
+- **DeploymentStatusEdge** (2 fields): An edge in a connection.
+- **DisconnectedEvent** (6 fields): Represents a`disconnected`event on a given issue or pull request.
+- **Discussion** (47 fields): A discussion in a repository.
+- **DiscussionCategory** (10 fields): A category for discussions in a repository.
+- **DiscussionCategoryConnection** (4 fields): The connection type for DiscussionCategory.
+- **DiscussionCategoryEdge** (2 fields): An edge in a connection.
+- **DiscussionComment** (38 fields): A comment on a discussion.
+- **DiscussionCommentConnection** (4 fields): The connection type for DiscussionComment.
+- **DiscussionCommentEdge** (2 fields): An edge in a connection.
+- **DiscussionConnection** (4 fields): The connection type for Discussion.
+- **DiscussionEdge** (2 fields): An edge in a connection.
+- **DiscussionPoll** (7 fields): A poll for a discussion.
+- **DiscussionPollOption** (5 fields): An option for a discussion poll.
+- **DiscussionPollOptionConnection** (4 fields): The connection type for DiscussionPollOption.
+- **DiscussionPollOptionEdge** (2 fields): An edge in a connection.
+- **DraftIssue** (11 fields): A draft issue within a project.
+- **EPSS** (2 fields): The Exploit Prediction Scoring System.
+- **Enterprise** (28 fields): An account to manage multiple organizations with consolidated policy and billing.
+- **EnterpriseAdministratorConnection** (4 fields): The connection type for User.
+- **EnterpriseAdministratorEdge** (3 fields): A User who is an administrator of an enterprise.
+- **EnterpriseAdministratorInvitation** (7 fields): An invitation for a user to become an owner or billing manager of an enterprise.
+- **EnterpriseAdministratorInvitationConnection** (4 fields): The connection type for EnterpriseAdministratorInvitation.
+- **EnterpriseAdministratorInvitationEdge** (2 fields): An edge in a connection.
+- **EnterpriseBillingInfo** (10 fields): Enterprise billing information visible to enterprise billing managers and owners.
+- **EnterpriseConnection** (4 fields): The connection type for Enterprise.
+- **EnterpriseEdge** (2 fields): An edge in a connection.
+- **EnterpriseFailedInvitationConnection** (5 fields): The connection type for OrganizationInvitation.
+- **EnterpriseFailedInvitationEdge** (2 fields): A failed invitation to be a member in an enterprise organization.
+- **EnterpriseIdentityProvider** (9 fields): An identity provider configured to provision identities for an enterprise.
+Visible to enterprise owners or enterprise...
+- **EnterpriseMemberConnection** (4 fields): The connection type for EnterpriseMember.
+- **EnterpriseMemberEdge** (2 fields): A User who is a member of an enterprise through one or more organizations.
+- **EnterpriseMemberInvitation** (6 fields): An invitation for a user to become an unaffiliated member of an enterprise.
+- **EnterpriseMemberInvitationConnection** (4 fields): The connection type for EnterpriseMemberInvitation.
+- **EnterpriseMemberInvitationEdge** (2 fields): An edge in a connection.
+- **EnterpriseOrganizationMembershipConnection** (4 fields): The connection type for Organization.
+- **EnterpriseOrganizationMembershipEdge** (3 fields): An enterprise organization that a user is a member of.
+- **EnterpriseOutsideCollaboratorConnection** (4 fields): The connection type for User.
+- **EnterpriseOutsideCollaboratorEdge** (3 fields): A User who is an outside collaborator of an enterprise through one or more organizations.
+- **EnterpriseOwnerInfo** (55 fields): Enterprise information visible to enterprise owners or enterprise owners'
+personal access tokens (classic) with read:...
+- **EnterprisePendingMemberInvitationConnection** (5 fields): The connection type for OrganizationInvitation.
+- **EnterprisePendingMemberInvitationEdge** (2 fields): An invitation to be a member in an enterprise organization.
+- **EnterpriseRepositoryInfo** (4 fields): A subset of repository information queryable from an enterprise.
+- **EnterpriseRepositoryInfoConnection** (4 fields): The connection type for EnterpriseRepositoryInfo.
+- **EnterpriseRepositoryInfoEdge** (2 fields): An edge in a connection.
+- **EnterpriseServerInstallation** (8 fields): An Enterprise Server installation.
+- **EnterpriseServerInstallationConnection** (4 fields): The connection type for EnterpriseServerInstallation.
+- **EnterpriseServerInstallationEdge** (2 fields): An edge in a connection.
+- **EnterpriseServerInstallationMembershipConnection** (4 fields): The connection type for EnterpriseServerInstallation.
+- **EnterpriseServerInstallationMembershipEdge** (3 fields): An Enterprise Server installation that a user is a member of.
+- **EnterpriseServerUserAccount** (10 fields): A user account on an Enterprise Server installation.
+- **EnterpriseServerUserAccountConnection** (4 fields): The connection type for EnterpriseServerUserAccount.
+- **EnterpriseServerUserAccountEdge** (2 fields): An edge in a connection.
+- **EnterpriseServerUserAccountEmail** (6 fields): An email belonging to a user account on an Enterprise Server installation.
+- **EnterpriseServerUserAccountEmailConnection** (4 fields): The connection type for EnterpriseServerUserAccountEmail.
+- **EnterpriseServerUserAccountEmailEdge** (2 fields): An edge in a connection.
+- **EnterpriseServerUserAccountsUpload** (7 fields): A user accounts upload from an Enterprise Server installation.
+- **EnterpriseServerUserAccountsUploadConnection** (4 fields): The connection type for EnterpriseServerUserAccountsUpload.
+- **EnterpriseServerUserAccountsUploadEdge** (2 fields): An edge in a connection.
+- **EnterpriseUserAccount** (12 fields): An account for a user who is an admin of an enterprise or a member of an enterprise through one or more organizations.
+- **Environment** (7 fields): An environment.
+- **EnvironmentConnection** (4 fields): The connection type for Environment.
+- **EnvironmentEdge** (2 fields): An edge in a connection.
+- **ExternalIdentity** (6 fields): An external identity provisioned by SAML SSO or SCIM. If SAML is configured on
+the organization, the external identit...
+- **ExternalIdentityAttribute** (3 fields): An attribute for the External Identity attributes collection.
+- **ExternalIdentityConnection** (4 fields): The connection type for ExternalIdentity.
+- **ExternalIdentityEdge** (2 fields): An edge in a connection.
+- **ExternalIdentitySamlAttributes** (7 fields): SAML attributes for the External Identity.
+- **ExternalIdentityScimAttributes** (5 fields): SCIM attributes for the External Identity.
+- **FileExtensionRestrictionParameters** (1 fields): Prevent commits that include files with specified file extensions from being pushed to the commit graph.
+- **FilePathRestrictionParameters** (1 fields): Prevent commits that include changes in specified file and folder paths from
+being pushed to the commit graph. This i...
+- **FollowerConnection** (4 fields): The connection type for User.
+- **FollowingConnection** (4 fields): The connection type for User.
+- **FundingLink** (2 fields): A funding platform link for a repository.
+- **GenericHovercardContext** (2 fields): A generic hovercard context with a message and icon.
+- **Gist** (17 fields): A Gist.
+- **GistComment** (24 fields): Represents a comment on an Gist.
+- **GistCommentConnection** (4 fields): The connection type for GistComment.
+- **GistCommentEdge** (2 fields): An edge in a connection.
+- **GistConnection** (4 fields): The connection type for Gist.
+- **GistEdge** (2 fields): An edge in a connection.
+- **GistFile** (9 fields): A file in a gist.
+- **GitActor** (5 fields): Represents an actor in a Git commit (ie. an author or committer).
+- **GitActorConnection** (4 fields): The connection type for GitActor.
+- **GitActorEdge** (2 fields): An edge in a connection.
+- **GitHubMetadata** (7 fields): Represents information about the GitHub instance.
+- **GpgSignature** (9 fields): Represents a GPG signature on a Commit or Tag.
+- **HeadRefDeletedEvent** (6 fields): Represents a`head_ref_deleted`event on a given pull request.
+- **HeadRefForcePushedEvent** (7 fields): Represents a`head_ref_force_pushed`event on a given pull request.
+- **HeadRefRestoredEvent** (4 fields): Represents a`head_ref_restored`event on a given pull request.
+- **Hovercard** (1 fields): Detail needed to display a hovercard for a user.
+- **IpAllowListEntry** (7 fields): An IP address or range of addresses that is allowed to access an owner's resources.
+- **IpAllowListEntryConnection** (4 fields): The connection type for IpAllowListEntry.
+- **IpAllowListEntryEdge** (2 fields): An edge in a connection.
+- **Issue** (76 fields): An Issue is a place to discuss ideas, enhancements, tasks, and bugs for a project.
+- **IssueComment** (37 fields): Represents a comment on an Issue.
+- **IssueCommentConnection** (4 fields): The connection type for IssueComment.
+- **IssueCommentEdge** (2 fields): An edge in a connection.
+- **IssueCommentPinnedEvent** (4 fields): Represents a`issue_comment_pinned`event on a given issue.
+- **IssueCommentUnpinnedEvent** (4 fields): Represents a`issue_comment_unpinned`event on a given issue.
+- **IssueConnection** (4 fields): The connection type for Issue.
+- **IssueContributionsByRepository** (2 fields): This aggregates issues opened by a user within one repository.
+- **IssueDependenciesSummary** (4 fields): Summary of the state of an issue's dependencies.
+- **IssueEdge** (2 fields): An edge in a connection.
+- **IssueFieldAddedEvent** (6 fields): Represents a`issue_field_added`event on a given issue.
+- **IssueFieldChangedEvent** (8 fields): Represents a`issue_field_changed`event on a given issue.
+- **IssueFieldDate** (6 fields): Represents a date issue field.
+- **IssueFieldDateValue** (3 fields): The value of a date field in an Issue item.
+- **IssueFieldNumber** (6 fields): Represents a number issue field.
+- **IssueFieldNumberValue** (3 fields): The value of a number field in an Issue item.
+- **IssueFieldRemovedEvent** (4 fields): Represents a`issue_field_removed`event on a given issue.
+- **IssueFieldSingleSelect** (7 fields): Represents a single select issue field.
+- **IssueFieldSingleSelectOption** (5 fields): Represents an option in a single-select issue field.
+- **IssueFieldSingleSelectValue** (7 fields): The value of a single select field in an Issue item.
+- **IssueFieldText** (6 fields): Represents a text issue field.
+- **IssueFieldTextValue** (3 fields): The value of a text field in an Issue item.
+- **IssueFieldValueConnection** (4 fields): The connection type for IssueFieldValue.
+- **IssueFieldValueEdge** (2 fields): An edge in a connection.
+- **IssueFieldsConnection** (4 fields): The connection type for IssueFields.
+- **IssueFieldsEdge** (2 fields): An edge in a connection.
+- **IssueTemplate** (8 fields): A repository issue template.
+- **IssueTimelineConnection** (4 fields): The connection type for IssueTimelineItem.
+- **IssueTimelineItemEdge** (2 fields): An edge in a connection.
+- **IssueTimelineItemsConnection** (7 fields): The connection type for IssueTimelineItems.
+- **IssueTimelineItemsEdge** (2 fields): An edge in a connection.
+- **IssueType** (8 fields): Represents the type of Issue.
+- **IssueTypeAddedEvent** (4 fields): Represents a`issue_type_added`event on a given issue.
+- **IssueTypeChangedEvent** (5 fields): Represents a`issue_type_changed`event on a given issue.
+- **IssueTypeConnection** (4 fields): The connection type for IssueType.
+- **IssueTypeEdge** (2 fields): An edge in a connection.
+- **IssueTypeRemovedEvent** (4 fields): Represents a`issue_type_removed`event on a given issue.
+- **JoinedGitHubContribution** (5 fields): Represents a user signing up for a GitHub account.
+- **Label** (12 fields): A label for categorizing Issues, Pull Requests, Milestones, or Discussions with a given Repository.
+- **LabelConnection** (4 fields): The connection type for Label.
+- **LabelEdge** (2 fields): An edge in a connection.
+- **LabeledEvent** (5 fields): Represents a`labeled`event on a given issue or pull request.
+- **Language** (3 fields): Represents a given language found in repositories.
+- **LanguageConnection** (5 fields): A list of languages associated with the parent.
+- **LanguageEdge** (3 fields): Represents the language of a repository.
+- **License** (15 fields): A repository's open source license.
+- **LicenseRule** (3 fields): Describes a License's conditions, permissions, and limitations.
+- **LinkedBranch** (2 fields): A branch linked to an issue.
+- **LinkedBranchConnection** (4 fields): A list of branches linked to an issue.
+- **LinkedBranchEdge** (2 fields): An edge in a connection.
+- **LockedEvent** (5 fields): Represents a`locked`event on a given issue or pull request.
+- **Mannequin** (11 fields): A placeholder user for attribution of imported data on GitHub.
+- **MannequinConnection** (4 fields): A list of mannequins.
+- **MannequinEdge** (2 fields): Represents a mannequin.
+- **MarkedAsDuplicateEvent** (6 fields): Represents a`marked_as_duplicate`event on a given issue or pull request.
+- **MarketplaceCategory** (9 fields): A public description of a Marketplace category.
+- **MarketplaceListing** (56 fields): A listing in the GitHub integration marketplace.
+- **MarketplaceListingConnection** (4 fields): Look up Marketplace Listings.
+- **MarketplaceListingEdge** (2 fields): An edge in a connection.
+- **MaxFilePathLengthParameters** (1 fields): Prevent commits that include file paths that exceed the specified character limit from being pushed to the commit graph.
+- **MaxFileSizeParameters** (1 fields): Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.
+- **MemberFeatureRequestNotification** (4 fields): Represents a member feature request notification.
+- **MembersCanDeleteReposClearAuditEntry** (21 fields): Audit log entry for a members_can_delete_repos.clear event.
+- **MembersCanDeleteReposDisableAuditEntry** (21 fields): Audit log entry for a members_can_delete_repos.disable event.
+- **MembersCanDeleteReposEnableAuditEntry** (21 fields): Audit log entry for a members_can_delete_repos.enable event.
+- **MentionedEvent** (4 fields): Represents a`mentioned`event on a given issue or pull request.
+- **MergeQueue** (7 fields): The queue of pull request entries to be merged into a protected branch in a repository.
+- **MergeQueueConfiguration** (7 fields): Configuration for a MergeQueue.
+- **MergeQueueEntry** (12 fields): Entries in a MergeQueue.
+- **MergeQueueEntryConnection** (4 fields): The connection type for MergeQueueEntry.
+- **MergeQueueEntryEdge** (2 fields): An edge in a connection.
+- **MergeQueueParameters** (7 fields): Merges must be performed via a merge queue.
+- **MergedEvent** (9 fields): Represents a`merged`event on a given pull request.
+- **MigrationSource** (4 fields): A GitHub Enterprise Importer (GEI) migration source.
+- **Milestone** (22 fields): Represents a Milestone object on a given repository.
+- **MilestoneConnection** (4 fields): The connection type for Milestone.
+- **MilestoneEdge** (2 fields): An edge in a connection.
+- **MilestonedEvent** (5 fields): Represents a`milestoned`event on a given issue or pull request.
+- **MovedColumnsInProjectEvent** (8 fields): Represents a`moved_columns_in_project`event on a given issue or pull request.
+- **OIDCProvider** (5 fields): An OIDC identity provider configured to provision identities for an enterprise.
+Visible to enterprise owners or enter...
+- **OauthApplicationCreateAuditEntry** (25 fields): Audit log entry for a oauth_application.create event.
+- **OrgAddBillingManagerAuditEntry** (19 fields): Audit log entry for a org.add_billing_manager.
+- **OrgAddMemberAuditEntry** (19 fields): Audit log entry for a org.add_member.
+- **OrgBlockUserAuditEntry** (22 fields): Audit log entry for a org.block_user.
+- **OrgConfigDisableCollaboratorsOnlyAuditEntry** (18 fields): Audit log entry for a org.config.disable_collaborators_only event.
+- **OrgConfigEnableCollaboratorsOnlyAuditEntry** (18 fields): Audit log entry for a org.config.enable_collaborators_only event.
+- **OrgCreateAuditEntry** (19 fields): Audit log entry for a org.create event.
+- **OrgDisableOauthAppRestrictionsAuditEntry** (18 fields): Audit log entry for a org.disable_oauth_app_restrictions event.
+- **OrgDisableSamlAuditEntry** (22 fields): Audit log entry for a org.disable_saml event.
+- **OrgDisableTwoFactorRequirementAuditEntry** (18 fields): Audit log entry for a org.disable_two_factor_requirement event.
+- **OrgEnableOauthAppRestrictionsAuditEntry** (18 fields): Audit log entry for a org.enable_oauth_app_restrictions event.
+- **OrgEnableSamlAuditEntry** (22 fields): Audit log entry for a org.enable_saml event.
+- **OrgEnableTwoFactorRequirementAuditEntry** (18 fields): Audit log entry for a org.enable_two_factor_requirement event.
+- **OrgInviteMemberAuditEntry** (20 fields): Audit log entry for a org.invite_member event.
+- **OrgInviteToBusinessAuditEntry** (21 fields): Audit log entry for a org.invite_to_business event.
+- **OrgOauthAppAccessApprovedAuditEntry** (21 fields): Audit log entry for a org.oauth_app_access_approved event.
+- **OrgOauthAppAccessBlockedAuditEntry** (21 fields): Audit log entry for a org.oauth_app_access_blocked event.
+- **OrgOauthAppAccessDeniedAuditEntry** (21 fields): Audit log entry for a org.oauth_app_access_denied event.
+- **OrgOauthAppAccessRequestedAuditEntry** (21 fields): Audit log entry for a org.oauth_app_access_requested event.
+- **OrgOauthAppAccessUnblockedAuditEntry** (21 fields): Audit log entry for a org.oauth_app_access_unblocked event.
+- **OrgRemoveBillingManagerAuditEntry** (19 fields): Audit log entry for a org.remove_billing_manager event.
+- **OrgRemoveMemberAuditEntry** (20 fields): Audit log entry for a org.remove_member event.
+- **OrgRemoveOutsideCollaboratorAuditEntry** (20 fields): Audit log entry for a org.remove_outside_collaborator event.
+- **OrgRestoreMemberAuditEntry** (25 fields): Audit log entry for a org.restore_member event.
+- **OrgRestoreMemberMembershipOrganizationAuditEntryData** (4 fields): Metadata for an organization membership for org.restore_member actions.
+- **OrgRestoreMemberMembershipRepositoryAuditEntryData** (4 fields): Metadata for a repository membership for org.restore_member actions.
+- **OrgRestoreMemberMembershipTeamAuditEntryData** (4 fields): Metadata for a team membership for org.restore_member actions.
+- **OrgUnblockUserAuditEntry** (22 fields): Audit log entry for a org.unblock_user.
+- **OrgUpdateDefaultRepositoryPermissionAuditEntry** (20 fields): Audit log entry for a org.update_default_repository_permission.
+- **OrgUpdateMemberAuditEntry** (20 fields): Audit log entry for a org.update_member event.
+- **OrgUpdateMemberRepositoryCreationPermissionAuditEntry** (20 fields): Audit log entry for a org.update_member_repository_creation_permission event.
+- **OrgUpdateMemberRepositoryInvitationPermissionAuditEntry** (19 fields): Audit log entry for a org.update_member_repository_invitation_permission event.
+- **Organization** (90 fields): An account on GitHub, with one or more owners, that has repositories, members and teams.
+- **OrganizationAuditEntryConnection** (4 fields): The connection type for OrganizationAuditEntry.
+- **OrganizationAuditEntryEdge** (2 fields): An edge in a connection.
+- **OrganizationConnection** (4 fields): A list of organizations managed by an enterprise.
+- **OrganizationEdge** (2 fields): An edge in a connection.
+- **OrganizationEnterpriseOwnerConnection** (4 fields): The connection type for User.
+- **OrganizationEnterpriseOwnerEdge** (3 fields): An enterprise owner in the context of an organization that is part of the enterprise.
+- **OrganizationIdentityProvider** (8 fields): An Identity Provider configured to provision SAML and SCIM identities for
+Organizations. Visible to (1) organization ...
+- **OrganizationInvitation** (10 fields): An Invitation for a user to an organization.
+- **OrganizationInvitationConnection** (4 fields): The connection type for OrganizationInvitation.
+- **OrganizationInvitationEdge** (2 fields): An edge in a connection.
+- **OrganizationMemberConnection** (4 fields): A list of users who belong to the organization.
+- **OrganizationMemberEdge** (4 fields): Represents a user within an organization.
+- **OrganizationMigration** (10 fields): A GitHub Enterprise Importer (GEI) organization migration.
+- **OrganizationPropertyConditionTarget** (2 fields): Parameters to be used for the organization_property condition.
+- **OrganizationPropertyTargetDefinition** (2 fields): A property that must match.
+- **OrganizationTeamsHovercardContext** (6 fields): An organization teams hovercard context.
+- **OrganizationsHovercardContext** (4 fields): An organization list hovercard context.
+- **Package** (8 fields): Information for an uploaded package.
+- **PackageConnection** (4 fields): The connection type for Package.
+- **PackageEdge** (2 fields): An edge in a connection.
+- **PackageFile** (9 fields): A file in a package version.
+- **PackageFileConnection** (4 fields): The connection type for PackageFile.
+- **PackageFileEdge** (2 fields): An edge in a connection.
+- **PackageStatistics** (1 fields): Represents a object that contains package activity statistics such as downloads.
+- **PackageTag** (3 fields): A version tag contains the mapping between a tag name and a version.
+- **PackageVersion** (10 fields): Information about a specific package version.
+- **PackageVersionConnection** (4 fields): The connection type for PackageVersion.
+- **PackageVersionEdge** (2 fields): An edge in a connection.
+- **PackageVersionStatistics** (1 fields): Represents a object that contains package version activity statistics such as downloads.
+- **PageInfo** (4 fields): Information about pagination in a connection.
+- **ParentIssueAddedEvent** (4 fields): Represents a`parent_issue_added`event on a given issue.
+- **ParentIssueRemovedEvent** (4 fields): Represents a`parent_issue_removed`event on a given issue.
+- **PermissionSource** (4 fields): A level of permission and source for a user's access to a repository.
+- **PinnableItemConnection** (4 fields): The connection type for PinnableItem.
+- **PinnableItemEdge** (2 fields): An edge in a connection.
+- **PinnedDiscussion** (10 fields): A Pinned Discussion is a discussion pinned to a repository's index page.
+- **PinnedDiscussionConnection** (4 fields): The connection type for PinnedDiscussion.
+- **PinnedDiscussionEdge** (2 fields): An edge in a connection.
+- **PinnedEnvironment** (6 fields): Represents a pinned environment on a given repository.
+- **PinnedEnvironmentConnection** (4 fields): The connection type for PinnedEnvironment.
+- **PinnedEnvironmentEdge** (2 fields): An edge in a connection.
+- **PinnedEvent** (4 fields): Represents a`pinned`event on a given issue or pull request.
+- **PinnedIssue** (6 fields): A Pinned Issue is a issue pinned to a repository's index page.
+- **PinnedIssueComment** (7 fields): A comment pinned to an Issue.
+- **PinnedIssueConnection** (4 fields): The connection type for PinnedIssue.
+- **PinnedIssueEdge** (2 fields): An edge in a connection.
+- **PrivateRepositoryForkingDisableAuditEntry** (25 fields): Audit log entry for a private_repository_forking.disable event.
+- **PrivateRepositoryForkingEnableAuditEntry** (25 fields): Audit log entry for a private_repository_forking.enable event.
+- **ProfileItemShowcase** (2 fields): A curatable list of repositories relating to a repository owner, which defaults
+to showing the most popular repositor...
+- **Project** (21 fields): Projects manage issues, pull requests and notes within a project owner.
+- **ProjectCard** (13 fields): A card in a project.
+- **ProjectCardConnection** (4 fields): The connection type for ProjectCard.
+- **ProjectCardEdge** (2 fields): An edge in a connection.
+- **ProjectColumn** (10 fields): A column inside a project.
+- **ProjectColumnConnection** (4 fields): The connection type for ProjectColumn.
+- **ProjectColumnEdge** (2 fields): An edge in a connection.
+- **ProjectConnection** (4 fields): A list of projects associated with the owner.
+- **ProjectEdge** (2 fields): An edge in a connection.
+- **ProjectProgress** (7 fields): Project progress stats.
+- **ProjectV2** (30 fields): New projects that manage issues, pull requests and drafts using tables and boards.
+- **ProjectV2ActorConnection** (4 fields): The connection type for ProjectV2Actor.
+- **ProjectV2ActorEdge** (2 fields): An edge in a connection.
+- **ProjectV2Connection** (4 fields): The connection type for ProjectV2.
+- **ProjectV2Edge** (2 fields): An edge in a connection.
+- **ProjectV2Field** (7 fields): A field inside a project.
+- **ProjectV2FieldConfigurationConnection** (4 fields): The connection type for ProjectV2FieldConfiguration.
+- **ProjectV2FieldConfigurationEdge** (2 fields): An edge in a connection.
+- **ProjectV2FieldConnection** (4 fields): The connection type for ProjectV2Field.
+- **ProjectV2FieldEdge** (2 fields): An edge in a connection.
+- **ProjectV2Item** (12 fields): An item within a Project.
+- **ProjectV2ItemConnection** (4 fields): The connection type for ProjectV2Item.
+- **ProjectV2ItemEdge** (2 fields): An edge in a connection.
+- **ProjectV2ItemFieldDateValue** (8 fields): The value of a date field in a Project item.
+- **ProjectV2ItemFieldIterationValue** (12 fields): The value of an iteration field in a Project item.
+- **ProjectV2ItemFieldLabelValue** (2 fields): The value of the labels field in a Project item.
+- **ProjectV2ItemFieldMilestoneValue** (2 fields): The value of a milestone field in a Project item.
+- **ProjectV2ItemFieldNumberValue** (8 fields): The value of a number field in a Project item.
+- **ProjectV2ItemFieldPullRequestValue** (2 fields): The value of a pull request field in a Project item.
+- **ProjectV2ItemFieldRepositoryValue** (2 fields): The value of a repository field in a Project item.
+- **ProjectV2ItemFieldReviewerValue** (2 fields): The value of a reviewers field in a Project item.
+- **ProjectV2ItemFieldSingleSelectValue** (13 fields): The value of a single select field in a Project item.
+- **ProjectV2ItemFieldTextValue** (8 fields): The value of a text field in a Project item.
+- **ProjectV2ItemFieldUserValue** (2 fields): The value of a user field in a Project item.
+- **ProjectV2ItemFieldValueConnection** (4 fields): The connection type for ProjectV2ItemFieldValue.
+- **ProjectV2ItemFieldValueEdge** (2 fields): An edge in a connection.
+- **ProjectV2ItemIssueFieldValue** (2 fields): The value of an issue field in a Project item.
+- **ProjectV2ItemStatusChangedEvent** (7 fields): Represents a`project_v2_item_status_changed`event on a given issue or pull request.
+- **ProjectV2IterationField** (8 fields): An iteration field inside a project.
+- **ProjectV2IterationFieldConfiguration** (4 fields): Iteration field configuration for a project.
+- **ProjectV2IterationFieldIteration** (5 fields): Iteration field iteration settings for a project.
+- **ProjectV2SingleSelectField** (8 fields): A single select field inside a project.
+- **ProjectV2SingleSelectFieldOption** (6 fields): Single select field option for a configuration for a project.
+- **ProjectV2SortBy** (2 fields): Represents a sort by field and direction.
+- **ProjectV2SortByConnection** (4 fields): The connection type for ProjectV2SortBy.
+- **ProjectV2SortByEdge** (2 fields): An edge in a connection.
+- **ProjectV2SortByField** (2 fields): Represents a sort by field and direction.
+- **ProjectV2SortByFieldConnection** (4 fields): The connection type for ProjectV2SortByField.
+- **ProjectV2SortByFieldEdge** (2 fields): An edge in a connection.
+- **ProjectV2StatusUpdate** (12 fields): A status update within a project.
+- **ProjectV2StatusUpdateConnection** (4 fields): The connection type for ProjectV2StatusUpdate.
+- **ProjectV2StatusUpdateEdge** (2 fields): An edge in a connection.
+- **ProjectV2View** (18 fields): A view within a ProjectV2.
+- **ProjectV2ViewConnection** (4 fields): The connection type for ProjectV2View.
+- **ProjectV2ViewEdge** (2 fields): An edge in a connection.
+- **ProjectV2Workflow** (9 fields): A workflow inside a project.
+- **ProjectV2WorkflowConnection** (4 fields): The connection type for ProjectV2Workflow.
+- **ProjectV2WorkflowEdge** (2 fields): An edge in a connection.
+- **PropertyTargetDefinition** (3 fields): A property that must match.
+- **PublicKey** (7 fields): A user's public key.
+- **PublicKeyConnection** (4 fields): The connection type for PublicKey.
+- **PublicKeyEdge** (2 fields): An edge in a connection.
+- **PullRequest** (110 fields): A repository pull request.
+- **PullRequestChangedFile** (5 fields): A file changed in a pull request.
+- **PullRequestChangedFileConnection** (4 fields): The connection type for PullRequestChangedFile.
+- **PullRequestChangedFileEdge** (2 fields): An edge in a connection.
+- **PullRequestCommit** (5 fields): Represents a Git commit part of a pull request.
+- **PullRequestCommitCommentThread** (7 fields): Represents a commit comment thread part of a pull request.
+- **PullRequestCommitConnection** (4 fields): The connection type for PullRequestCommit.
+- **PullRequestCommitEdge** (2 fields): An edge in a connection.
+- **PullRequestConnection** (4 fields): The connection type for PullRequest.
+- **PullRequestContributionsByRepository** (2 fields): This aggregates pull requests opened by a user within one repository.
+- **PullRequestEdge** (2 fields): An edge in a connection.
+- **PullRequestParameters** (7 fields): Require all commits be made to a non-target branch and submitted via a pull request before they can be merged.
+- **PullRequestReview** (37 fields): A review object for a given pull request.
+- **PullRequestReviewComment** (47 fields): A review comment associated with a given repository pull request.
+- **PullRequestReviewCommentConnection** (4 fields): The connection type for PullRequestReviewComment.
+- **PullRequestReviewCommentEdge** (2 fields): An edge in a connection.
+- **PullRequestReviewConnection** (4 fields): The connection type for PullRequestReview.
+- **PullRequestReviewContributionsByRepository** (2 fields): This aggregates pull request reviews made by a user within one repository.
+- **PullRequestReviewEdge** (2 fields): An edge in a connection.
+- **PullRequestReviewThread** (19 fields): A threaded list of comments for a given pull request.
+- **PullRequestReviewThreadConnection** (4 fields): Review comment threads for a pull request review.
+- **PullRequestReviewThreadEdge** (2 fields): An edge in a connection.
+- **PullRequestRevisionMarker** (3 fields): Represents the latest point in the pull request timeline for which the viewer has seen the pull request's commits.
+- **PullRequestTemplate** (3 fields): A repository pull request template.
+- **PullRequestThread** (17 fields): A threaded list of comments for a given pull request.
+- **PullRequestTimelineConnection** (4 fields): The connection type for PullRequestTimelineItem.
+- **PullRequestTimelineItemEdge** (2 fields): An edge in a connection.
+- **PullRequestTimelineItemsConnection** (7 fields): The connection type for PullRequestTimelineItems.
+- **PullRequestTimelineItemsEdge** (2 fields): An edge in a connection.
+- **Push** (6 fields): A Git push.
+- **PushAllowance** (3 fields): A team, user, or app who has the ability to push to a protected branch.
+- **PushAllowanceConnection** (4 fields): The connection type for PushAllowance.
+- **PushAllowanceEdge** (2 fields): An edge in a connection.
+- **RateLimit** (6 fields): Represents the client's rate limit.
+- **ReactingUserConnection** (4 fields): The connection type for User.
+- **ReactingUserEdge** (3 fields): Represents a user that's made a reaction.
+- **Reaction** (6 fields): An emoji reaction to a particular piece of content.
+- **ReactionConnection** (5 fields): A list of reactions that have been left on the subject.
+- **ReactionEdge** (2 fields): An edge in a connection.
+- **ReactionGroup** (6 fields): A group of emoji reactions to a particular piece of content.
+- **ReactorConnection** (4 fields): The connection type for Reactor.
+- **ReactorEdge** (3 fields): Represents an author of a reaction.
+- **ReadyForReviewEvent** (6 fields): Represents a`ready_for_review`event on a given pull request.
+- **Ref** (10 fields): Represents a Git reference.
+- **RefConnection** (4 fields): The connection type for Ref.
+- **RefEdge** (2 fields): An edge in a connection.
+- **RefNameConditionTarget** (2 fields): Parameters to be used for the ref_name condition.
+- **RefUpdateRule** (12 fields): Branch protection rules that are enforced on the viewer.
+- **ReferencedEvent** (8 fields): Represents a`referenced`event on a given `ReferencedSubject`.
+- **Release** (25 fields): A release contains the content for a release.
+- **ReleaseAsset** (12 fields): A release asset contains the content for a release asset.
+- **ReleaseAssetConnection** (4 fields): The connection type for ReleaseAsset.
+- **ReleaseAssetEdge** (2 fields): An edge in a connection.
+- **ReleaseConnection** (4 fields): The connection type for Release.
+- **ReleaseEdge** (2 fields): An edge in a connection.
+- **RemovedFromMergeQueueEvent** (8 fields): Represents a`removed_from_merge_queue`event on a given pull request.
+- **RemovedFromProjectEvent** (6 fields): Represents a`removed_from_project`event on a given issue or pull request.
+- **RemovedFromProjectV2Event** (5 fields): Represents a`removed_from_project_v2`event on a given issue or pull request.
+- **RenamedTitleEvent** (6 fields): Represents a`renamed`event on a given issue or pull request.
+- **ReopenedEvent** (5 fields): Represents a`reopened`event on any `Closable`.
+- **RepoAccessAuditEntry** (23 fields): Audit log entry for a repo.access event.
+- **RepoAddMemberAuditEntry** (23 fields): Audit log entry for a repo.add_member event.
+- **RepoAddTopicAuditEntry** (24 fields): Audit log entry for a repo.add_topic event.
+- **RepoArchivedAuditEntry** (23 fields): Audit log entry for a repo.archived event.
+- **RepoChangeMergeSettingAuditEntry** (24 fields): Audit log entry for a repo.change_merge_setting event.
+- **RepoConfigDisableAnonymousGitAccessAuditEntry** (22 fields): Audit log entry for a repo.config.disable_anonymous_git_access event.
+- **RepoConfigDisableCollaboratorsOnlyAuditEntry** (22 fields): Audit log entry for a repo.config.disable_collaborators_only event.
+- **RepoConfigDisableContributorsOnlyAuditEntry** (22 fields): Audit log entry for a repo.config.disable_contributors_only event.
+- **RepoConfigDisableSockpuppetDisallowedAuditEntry** (22 fields): Audit log entry for a repo.config.disable_sockpuppet_disallowed event.
+- **RepoConfigEnableAnonymousGitAccessAuditEntry** (22 fields): Audit log entry for a repo.config.enable_anonymous_git_access event.
+- **RepoConfigEnableCollaboratorsOnlyAuditEntry** (22 fields): Audit log entry for a repo.config.enable_collaborators_only event.
+- **RepoConfigEnableContributorsOnlyAuditEntry** (22 fields): Audit log entry for a repo.config.enable_contributors_only event.
+- **RepoConfigEnableSockpuppetDisallowedAuditEntry** (22 fields): Audit log entry for a repo.config.enable_sockpuppet_disallowed event.
+- **RepoConfigLockAnonymousGitAccessAuditEntry** (22 fields): Audit log entry for a repo.config.lock_anonymous_git_access event.
+- **RepoConfigUnlockAnonymousGitAccessAuditEntry** (22 fields): Audit log entry for a repo.config.unlock_anonymous_git_access event.
+- **RepoCreateAuditEntry** (25 fields): Audit log entry for a repo.create event.
+- **RepoDestroyAuditEntry** (23 fields): Audit log entry for a repo.destroy event.
+- **RepoRemoveMemberAuditEntry** (23 fields): Audit log entry for a repo.remove_member event.
+- **RepoRemoveTopicAuditEntry** (24 fields): Audit log entry for a repo.remove_topic event.
+- **Repository** (140 fields): A repository contains the content for a project.
+- **RepositoryCodeowners** (1 fields): Information extracted from a repository's `CODEOWNERS` file.
+- **RepositoryCodeownersError** (7 fields): An error in a `CODEOWNERS` file.
+- **RepositoryCollaboratorConnection** (4 fields): The connection type for User.
+- **RepositoryCollaboratorEdge** (4 fields): Represents a user who is a collaborator of a repository.
+- **RepositoryConnection** (5 fields): A list of repositories owned by the subject.
+- **RepositoryContactLink** (3 fields): A repository contact link.
+- **RepositoryCustomProperty** (11 fields): A repository custom property.
+- **RepositoryCustomPropertyConnection** (4 fields): The connection type for RepositoryCustomProperty.
+- **RepositoryCustomPropertyEdge** (2 fields): An edge in a connection.
+- **RepositoryCustomPropertyValue** (2 fields): A value associated with a repository custom property.
+- **RepositoryCustomPropertyValueConnection** (4 fields): The connection type for RepositoryCustomPropertyValue.
+- **RepositoryCustomPropertyValueEdge** (2 fields): An edge in a connection.
+- **RepositoryEdge** (2 fields): An edge in a connection.
+- **RepositoryIdConditionTarget** (1 fields): Parameters to be used for the repository_id condition.
+- **RepositoryInteractionAbility** (3 fields): Repository interaction limit that applies to this object.
+- **RepositoryInvitation** (7 fields): An invitation for a user to be added to a repository.
+- **RepositoryInvitationConnection** (4 fields): A list of repository invitations.
+- **RepositoryInvitationEdge** (2 fields): An edge in a connection.
+- **RepositoryMigration** (11 fields): A GitHub Enterprise Importer (GEI) repository migration.
+- **RepositoryMigrationConnection** (4 fields): A list of migrations.
+- **RepositoryMigrationEdge** (2 fields): Represents a repository migration.
+- **RepositoryNameConditionTarget** (3 fields): Parameters to be used for the repository_name condition.
+- **RepositoryPlanFeatures** (5 fields): Information about the availability of features and limits for a repository based on its billing plan.
+- **RepositoryPropertyConditionTarget** (2 fields): Parameters to be used for the repository_property condition.
+- **RepositoryRule** (4 fields): A repository rule.
+- **RepositoryRuleConditions** (5 fields): Set of conditions that determine if a ruleset will evaluate.
+- **RepositoryRuleConnection** (4 fields): The connection type for RepositoryRule.
+- **RepositoryRuleEdge** (2 fields): An edge in a connection.
+- **RepositoryRuleset** (11 fields): A repository ruleset.
+- **RepositoryRulesetBypassActor** (9 fields): A team or app that has the ability to bypass a rules defined on a ruleset.
+- **RepositoryRulesetBypassActorConnection** (4 fields): The connection type for RepositoryRulesetBypassActor.
+- **RepositoryRulesetBypassActorEdge** (2 fields): An edge in a connection.
+- **RepositoryRulesetConnection** (4 fields): The connection type for RepositoryRuleset.
+- **RepositoryRulesetEdge** (2 fields): An edge in a connection.
+- **RepositoryTopic** (4 fields): A repository-topic connects a repository to a topic.
+- **RepositoryTopicConnection** (4 fields): The connection type for RepositoryTopic.
+- **RepositoryTopicEdge** (2 fields): An edge in a connection.
+- **RepositoryVisibilityChangeDisableAuditEntry** (21 fields): Audit log entry for a repository_visibility_change.disable event.
+- **RepositoryVisibilityChangeEnableAuditEntry** (21 fields): Audit log entry for a repository_visibility_change.enable event.
+- **RepositoryVulnerabilityAlert** (19 fields): A Dependabot alert for a repository with a dependency affected by a security vulnerability.
+- **RepositoryVulnerabilityAlertConnection** (4 fields): The connection type for RepositoryVulnerabilityAlert.
+- **RepositoryVulnerabilityAlertEdge** (2 fields): An edge in a connection.
+- **RequestedReviewerConnection** (4 fields): The connection type for RequestedReviewer.
+- **RequestedReviewerEdge** (2 fields): An edge in a connection.
+- **RequiredDeploymentsParameters** (1 fields): Choose which environments must be successfully deployed to before refs can be pushed into a ref that matches this rule.
+- **RequiredReviewerConfiguration** (3 fields): A reviewing team, and file patterns describing which files they must approve changes to.
+- **RequiredStatusCheckDescription** (2 fields): Represents a required status check for a protected branch, but not any specific run of that check.
+- **RequiredStatusChecksParameters** (3 fields): Choose which status checks must pass before the ref is updated. When enabled,
+commits must first be pushed to another...
+- **RestrictedContribution** (5 fields): Represents a private contribution a user made on GitHub.
+- **ReviewDismissalAllowance** (3 fields): A user, team, or app who has the ability to dismiss a review on a protected branch.
+- **ReviewDismissalAllowanceConnection** (4 fields): The connection type for ReviewDismissalAllowance.
+- **ReviewDismissalAllowanceEdge** (2 fields): An edge in a connection.
+- **ReviewDismissedEvent** (12 fields): Represents a`review_dismissed`event on a given issue or pull request.
+- **ReviewRequest** (5 fields): A request for a user to review a pull request.
+- **ReviewRequestConnection** (4 fields): The connection type for ReviewRequest.
+- **ReviewRequestEdge** (2 fields): An edge in a connection.
+- **ReviewRequestRemovedEvent** (5 fields): Represents an`review_request_removed`event on a given pull request.
+- **ReviewRequestedEvent** (5 fields): Represents an`review_requested`event on a given pull request.
+- **ReviewStatusHovercardContext** (3 fields): A hovercard context with a message describing the current code review state of the pull
+request.
+- **SavedReply** (6 fields): A Saved Reply is text a user can use to reply quickly.
+- **SavedReplyConnection** (4 fields): The connection type for SavedReply.
+- **SavedReplyEdge** (2 fields): An edge in a connection.
+- **SearchResultItemConnection** (11 fields): A list of results that matched against a search query. Regardless of the number
+of matches, a maximum of 1,000 result...
+- **SearchResultItemEdge** (3 fields): An edge in a connection.
+- **SecurityAdvisory** (20 fields): A GitHub Security Advisory.
+- **SecurityAdvisoryConnection** (4 fields): The connection type for SecurityAdvisory.
+- **SecurityAdvisoryEdge** (2 fields): An edge in a connection.
+- **SecurityAdvisoryIdentifier** (2 fields): A GitHub Security Advisory Identifier.
+- **SecurityAdvisoryPackage** (2 fields): An individual package.
+- **SecurityAdvisoryPackageVersion** (1 fields): An individual package version.
+- **SecurityAdvisoryReference** (1 fields): A GitHub Security Advisory Reference.
+- **SecurityVulnerability** (6 fields): An individual vulnerability within an Advisory.
+- **SecurityVulnerabilityConnection** (4 fields): The connection type for SecurityVulnerability.
+- **SecurityVulnerabilityEdge** (2 fields): An edge in a connection.
+- **SmimeSignature** (8 fields): Represents an S/MIME signature on a Commit or Tag.
+- **SocialAccount** (3 fields): Social media profile associated with a user.
+- **SocialAccountConnection** (4 fields): The connection type for SocialAccount.
+- **SocialAccountEdge** (2 fields): An edge in a connection.
+- **SponsorAndLifetimeValue** (4 fields): A GitHub account and the total amount in USD they've paid for sponsorships to a
+particular maintainer. Does not inclu...
+- **SponsorAndLifetimeValueConnection** (4 fields): The connection type for SponsorAndLifetimeValue.
+- **SponsorAndLifetimeValueEdge** (2 fields): An edge in a connection.
+- **SponsorConnection** (4 fields): A list of users and organizations sponsoring someone via GitHub Sponsors.
+- **SponsorEdge** (2 fields): Represents a user or organization who is sponsoring someone in GitHub Sponsors.
+- **SponsorableItemConnection** (4 fields): The connection type for SponsorableItem.
+- **SponsorableItemEdge** (2 fields): An edge in a connection.
+- **SponsorsActivity** (10 fields): An event related to sponsorship activity.
+- **SponsorsActivityConnection** (4 fields): The connection type for SponsorsActivity.
+- **SponsorsActivityEdge** (2 fields): An edge in a connection.
+- **SponsorsGoal** (5 fields): A goal associated with a GitHub Sponsors listing, representing a target the sponsored maintainer would like to attain.
+- **SponsorsListing** (22 fields): A GitHub Sponsors listing.
+- **SponsorsListingFeaturedItem** (7 fields): A record that is promoted on a GitHub Sponsors profile.
+- **SponsorsTier** (13 fields): A GitHub Sponsors tier associated with a GitHub Sponsors listing.
+- **SponsorsTierAdminInfo** (4 fields): SponsorsTier information only visible to users that can administer the associated Sponsors listing.
+- **SponsorsTierConnection** (4 fields): The connection type for SponsorsTier.
+- **SponsorsTierEdge** (2 fields): An edge in a connection.
+- **Sponsorship** (13 fields): A sponsorship relationship between a sponsor and a maintainer.
+- **SponsorshipConnection** (6 fields): A list of sponsorships either from the subject or received by the subject.
+- **SponsorshipEdge** (2 fields): An edge in a connection.
+- **SponsorshipNewsletter** (8 fields): An update sent to sponsors of a user or organization on GitHub Sponsors.
+- **SponsorshipNewsletterConnection** (4 fields): The connection type for SponsorshipNewsletter.
+- **SponsorshipNewsletterEdge** (2 fields): An edge in a connection.
+- **SshSignature** (9 fields): Represents an SSH signature on a Commit or Tag.
+- **StargazerConnection** (4 fields): The connection type for User.
+- **StargazerEdge** (3 fields): Represents a user that's starred a repository.
+- **StarredRepositoryConnection** (5 fields): The connection type for Repository.
+- **StarredRepositoryEdge** (3 fields): Represents a starred repository.
+- **Status** (6 fields): Represents a commit status.
+- **StatusCheckConfiguration** (2 fields): Required status check.
+- **StatusCheckRollup** (4 fields): Represents the rollup for both the check runs and status for a commit.
+- **StatusCheckRollupContextConnection** (8 fields): The connection type for StatusCheckRollupContext.
+- **StatusCheckRollupContextEdge** (2 fields): An edge in a connection.
+- **StatusContext** (10 fields): Represents an individual commit status context.
+- **StatusContextStateCount** (2 fields): Represents a count of the state of a status context.
+- **StripeConnectAccount** (6 fields): A Stripe Connect account for receiving sponsorship funds from GitHub Sponsors.
+- **SubIssueAddedEvent** (4 fields): Represents a`sub_issue_added`event on a given issue.
+- **SubIssueRemovedEvent** (4 fields): Represents a`sub_issue_removed`event on a given issue.
+- **SubIssuesSummary** (3 fields): Summary of the state of an issue's sub-issues.
+- **Submodule** (7 fields): A pointer to a repository at a specific revision embedded inside another repository.
+- **SubmoduleConnection** (4 fields): The connection type for Submodule.
+- **SubmoduleEdge** (2 fields): An edge in a connection.
+- **SubscribedEvent** (4 fields): Represents a`subscribed`event on a given `Subscribable`.
+- **SuggestedReviewer** (3 fields): A suggestion to review a pull request based on a user's commit history and review comments.
+- **SuggestedReviewerActor** (3 fields): A suggestion to review a pull request based on an actor's commit history, review comments, and integrations.
+- **SuggestedReviewerActorConnection** (4 fields): A suggestion to review a pull request based on an actor's commit history, review comments, and integrations.
+- **SuggestedReviewerActorEdge** (2 fields): An edge in a connection.
+- **Tag** (10 fields): Represents a Git tag.
+- **TagNamePatternParameters** (4 fields): Parameters to be used for the tag_name_pattern rule.
+- **Team** (40 fields): A team of users in an organization.
+- **TeamAddMemberAuditEntry** (23 fields): Audit log entry for a team.add_member event.
+- **TeamAddRepositoryAuditEntry** (27 fields): Audit log entry for a team.add_repository event.
+- **TeamChangeParentTeamAuditEntry** (31 fields): Audit log entry for a team.change_parent_team event.
+- **TeamConnection** (4 fields): The connection type for Team.
+- **TeamEdge** (2 fields): An edge in a connection.
+- **TeamMemberConnection** (4 fields): The connection type for User.
+- **TeamMemberEdge** (5 fields): Represents a user who is a member of a team.
+- **TeamRemoveMemberAuditEntry** (23 fields): Audit log entry for a team.remove_member event.
+- **TeamRemoveRepositoryAuditEntry** (27 fields): Audit log entry for a team.remove_repository event.
+- **TeamRepositoryConnection** (4 fields): The connection type for Repository.
+- **TeamRepositoryEdge** (3 fields): Represents a team repository.
+- **TextMatch** (3 fields): A text match within a search result.
+- **TextMatchHighlight** (3 fields): Represents a single highlight in a search result match.
+- **Topic** (7 fields): A topic aggregates entities that are related to a subject.
+- **TransferredEvent** (5 fields): Represents a`transferred`event on a given issue or pull request.
+- **Tree** (7 fields): Represents a Git tree.
+- **TreeEntry** (15 fields): Represents a Git tree entry.
+- **UnassignedEvent** (6 fields): Represents an`unassigned`event on any assignable object.
+- **UnknownSignature** (8 fields): Represents an unknown signature on a Commit or Tag.
+- **UnlabeledEvent** (5 fields): Represents an`unlabeled`event on a given issue or pull request.
+- **UnlockedEvent** (4 fields): Represents an`unlocked`event on a given issue or pull request.
+- **UnmarkedAsDuplicateEvent** (6 fields): Represents an`unmarked_as_duplicate`event on a given issue or pull request.
+- **UnpinnedEvent** (4 fields): Represents an`unpinned`event on a given issue or pull request.
+- **UnsubscribedEvent** (4 fields): Represents an`unsubscribed`event on a given `Subscribable`.
+- **UpdateParameters** (1 fields): Only allow users with bypass permission to update matching refs.
+- **User** (99 fields): A user is an individual's account on GitHub that owns repositories and can make new content.
+- **UserBlockedEvent** (5 fields): Represents a`user_blocked`event on a given user.
+- **UserConnection** (4 fields): A list of users.
+- **UserContentEdit** (8 fields): An edit on user content.
+- **UserContentEditConnection** (4 fields): A list of edits to content.
+- **UserContentEditEdge** (2 fields): An edge in a connection.
+- **UserEdge** (2 fields): Represents a user.
+- **UserEmailMetadata** (3 fields): Email attributes from External Identity.
+- **UserList** (10 fields): A user-curated list of repositories.
+- **UserListConnection** (4 fields): The connection type for UserList.
+- **UserListEdge** (2 fields): An edge in a connection.
+- **UserListItemsConnection** (4 fields): The connection type for UserListItems.
+- **UserListItemsEdge** (2 fields): An edge in a connection.
+- **UserListSuggestion** (2 fields): Represents a suggested user list.
+- **UserNamespaceRepository** (4 fields): A repository owned by an Enterprise Managed user.
+- **UserNamespaceRepositoryConnection** (4 fields): A list of repositories owned by users in an enterprise with Enterprise Managed Users.
+- **UserNamespaceRepositoryEdge** (2 fields): An edge in a connection.
+- **UserStatus** (10 fields): The user's description of what they're currently doing.
+- **UserStatusConnection** (4 fields): The connection type for UserStatus.
+- **UserStatusEdge** (2 fields): An edge in a connection.
+- **VerifiableDomain** (15 fields): A domain that can be verified or approved for an organization or an enterprise.
+- **VerifiableDomainConnection** (4 fields): The connection type for VerifiableDomain.
+- **VerifiableDomainEdge** (2 fields): An edge in a connection.
+- **ViewerHovercardContext** (3 fields): A hovercard context with a message describing how the viewer is related.
+- **Workflow** (9 fields): A workflow contains meta information about an Actions workflow file.
+- **WorkflowFileReference** (4 fields): A workflow that must run for this rule to pass.
+- **WorkflowRun** (13 fields): A workflow run.
+- **WorkflowRunConnection** (4 fields): The connection type for WorkflowRun.
+- **WorkflowRunEdge** (2 fields): An edge in a connection.
+- **WorkflowRunFile** (9 fields): An executed workflow file for a workflow run.
+- **WorkflowsParameters** (2 fields): Require all changes made to a targeted branch to pass the specified workflows before they can be merged.
+
+## Interfaces
+
+Total: 49 interfaces.
+
+- **Actor**: Represents an object which can take actions on GitHub. Typically a User or Bot.
+- **Agentic**: Copilot Agentic fields in context of the current viewer.
+- **Assignable**: An object that can have users assigned to it.
+- **AuditEntry**: An entry in the audit log.
+- **Closable**: An object that can be closed.
+- **Comment**: Represents a comment.
+- **Contribution**: Represents a contribution a user made on GitHub, such as opening an issue.
+- **Deletable**: Entities that can be deleted.
+- **EnterpriseAuditEntryData**: Metadata for an audit entry containing enterprise account information.
+- **GitObject**: Represents a Git object.
+- **GitSignature**: Information about a signature (GPG or S/MIME) on a Commit or Tag.
+- **HovercardContext**: An individual line of a hovercard.
+- **IssueFieldCommon**: Common fields across different issue field types.
+- **IssueFieldValueCommon**: Common fields across different issue field value types.
+- **Labelable**: An object that can have labels assigned to it.
+- **Lockable**: An object that can be locked.
+- **MemberStatusable**: Entities that have members who can set status messages.
+- **Migration**: Represents a GitHub Enterprise Importer (GEI) migration.
+- **Minimizable**: Entities that can be minimized.
+- **Node**: An object with an ID.
+- **OauthApplicationAuditEntryData**: Metadata for an audit entry with action oauth_application.*.
+- **OrganizationAuditEntryData**: Metadata for an audit entry with action org.*.
+- **PackageOwner**: Represents an owner of a package.
+- **Pinnable**: Entities that can be pinned.
+- **ProfileOwner**: Represents any entity on GitHub that has a profile page.
+- **ProjectOwner**: Represents an owner of a Project.
+- **ProjectV2Event**: Represents an event related to a project on the timeline of an issue or pull request.
+- **ProjectV2FieldCommon**: Common fields across different project field types.
+- **ProjectV2ItemFieldValueCommon**: Common fields across different project field value types.
+- **ProjectV2Owner**: Represents an owner of a project.
+- **ProjectV2Recent**: Recent projects for the owner.
+- **Reactable**: Represents a subject that can be reacted on.
+- **RepositoryAuditEntryData**: Metadata for an audit entry with action repo.*.
+- **RepositoryDiscussionAuthor**: Represents an author of discussions in repositories.
+- **RepositoryDiscussionCommentAuthor**: Represents an author of discussion comments in repositories.
+- **RepositoryInfo**: A subset of repository info.
+- **RepositoryNode**: Represents a object that belongs to a repository.
+- **RepositoryOwner**: Represents an owner of a Repository.
+- **RequirableByPullRequest**: Represents a type that can be required by a pull request for merging.
+- **Sponsorable**: Entities that can sponsor or be sponsored through GitHub Sponsors.
+- **Starrable**: Things that can be starred.
+- **Subscribable**: Entities that can be subscribed to for web and email notifications.
+- **SubscribableThread**: Entities that can be subscribed to for web and email notifications.
+- **TeamAuditEntryData**: Metadata for an audit entry with action team.*.
+- **TopicAuditEntryData**: Metadata for an audit entry with a topic.
+- **UniformResourceLocatable**: Represents a type that can be retrieved by a URL.
+- **Updatable**: Entities that can be updated.
+- **UpdatableComment**: Comments that can be updated.
+- **Votable**: A subject that may be upvoted.
+
+## Enums
+
+Total: 245 enums.
+
+- **ActorType**: TEAM, USER
+- **AuditLogOrderField**: CREATED_AT
+- **CheckAnnotationLevel**: FAILURE, NOTICE, WARNING
+- **CheckConclusionState**: ACTION_REQUIRED, CANCELLED, FAILURE, NEUTRAL, SKIPPED, STALE, STARTUP_FAILURE, SUCCESS, ... (9 total)
+- **CheckRunState**: ACTION_REQUIRED, CANCELLED, COMPLETED, FAILURE, IN_PROGRESS, NEUTRAL, PENDING, QUEUED, ... (14 total)
+- **CheckRunType**: ALL, LATEST
+- **CheckStatusState**: COMPLETED, IN_PROGRESS, PENDING, QUEUED, REQUESTED, WAITING
+- **CollaboratorAffiliation**: ALL, DIRECT, OUTSIDE
+- **CommentAuthorAssociation**: COLLABORATOR, CONTRIBUTOR, FIRST_TIMER, FIRST_TIME_CONTRIBUTOR, MANNEQUIN, MEMBER, NONE, OWNER
+- **CommentCannotUpdateReason**: ARCHIVED, DENIED, INSUFFICIENT_ACCESS, LOCKED, LOGIN_REQUIRED, MAINTENANCE, VERIFIED_EMAIL_REQUIRED
+- **CommitContributionOrderField**: COMMIT_COUNT, OCCURRED_AT
+- **ComparisonStatus**: AHEAD, BEHIND, DIVERGED, IDENTICAL
+- **ContributionLevel**: FIRST_QUARTILE, FOURTH_QUARTILE, NONE, SECOND_QUARTILE, THIRD_QUARTILE
+- **CustomPropertyValueType**: MULTI_SELECT, SINGLE_SELECT, STRING, TRUE_FALSE, URL
+- **DefaultRepositoryPermissionField**: ADMIN, NONE, READ, WRITE
+- **DependencyGraphEcosystem**: ACTIONS, COMPOSER, GO, MAVEN, NPM, NUGET, PIP, PUB, ... (11 total)
+- **DeploymentOrderField**: CREATED_AT
+- **DeploymentProtectionRuleType**: BRANCH_POLICY, REQUIRED_REVIEWERS, WAIT_TIMER
+- **DeploymentReviewState**: APPROVED, REJECTED
+- **DeploymentState**: ABANDONED, ACTIVE, DESTROYED, ERROR, FAILURE, INACTIVE, IN_PROGRESS, PENDING, ... (11 total)
+- **DeploymentStatusState**: ERROR, FAILURE, INACTIVE, IN_PROGRESS, PENDING, QUEUED, SUCCESS, WAITING
+- **DiffSide**: LEFT, RIGHT
+- **DiscussionCloseReason**: DUPLICATE, OUTDATED, RESOLVED
+- **DiscussionOrderField**: CREATED_AT, UPDATED_AT
+- **DiscussionPollOptionOrderField**: AUTHORED_ORDER, VOTE_COUNT
+- **DiscussionState**: CLOSED, OPEN
+- **DiscussionStateReason**: DUPLICATE, OUTDATED, REOPENED, RESOLVED
+- **DismissReason**: FIX_STARTED, INACCURATE, NOT_USED, NO_BANDWIDTH, TOLERABLE_RISK
+- **EnterpriseAdministratorInvitationOrderField**: CREATED_AT
+- **EnterpriseAdministratorRole**: BILLING_MANAGER, OWNER, UNAFFILIATED
+- **EnterpriseAllowPrivateRepositoryForkingPolicyValue**: ENTERPRISE_ORGANIZATIONS, ENTERPRISE_ORGANIZATIONS_USER_ACCOUNTS, EVERYWHERE, SAME_ORGANIZATION, SAME_ORGANIZATION_USER_ACCOUNTS, USER_ACCOUNTS
+- **EnterpriseDefaultRepositoryPermissionSettingValue**: ADMIN, NONE, NO_POLICY, READ, WRITE
+- **EnterpriseDisallowedMethodsSettingValue**: INSECURE, NO_POLICY
+- **EnterpriseEnabledDisabledSettingValue**: DISABLED, ENABLED, NO_POLICY
+- **EnterpriseEnabledSettingValue**: ENABLED, NO_POLICY
+- **EnterpriseMemberInvitationOrderField**: CREATED_AT
+- **EnterpriseMemberOrderField**: CREATED_AT, LOGIN
+- **EnterpriseMembersCanCreateRepositoriesSettingValue**: ALL, DISABLED, NO_POLICY, PRIVATE, PUBLIC
+- **EnterpriseMembersCanMakePurchasesSettingValue**: DISABLED, ENABLED
+- **EnterpriseMembershipType**: ADMIN, ALL, BILLING_MANAGER, ORG_MEMBERSHIP
+- **EnterpriseOrderField**: NAME
+- **EnterpriseServerInstallationOrderField**: CREATED_AT, CUSTOMER_NAME, HOST_NAME
+- **EnterpriseServerUserAccountEmailOrderField**: EMAIL
+- **EnterpriseServerUserAccountOrderField**: LOGIN, REMOTE_CREATED_AT
+- **EnterpriseServerUserAccountsUploadOrderField**: CREATED_AT
+- **EnterpriseServerUserAccountsUploadSyncState**: FAILURE, PENDING, SUCCESS
+- **EnterpriseUserAccountMembershipRole**: MEMBER, OWNER, UNAFFILIATED
+- **EnterpriseUserDeployment**: CLOUD, SERVER
+- **EnvironmentOrderField**: NAME
+- **EnvironmentPinnedFilterField**: ALL, NONE, ONLY
+- **FileViewedState**: DISMISSED, UNVIEWED, VIEWED
+- **FundingPlatform**: BUY_ME_A_COFFEE, COMMUNITY_BRIDGE, CUSTOM, GITHUB, ISSUEHUNT, KO_FI, LFX_CROWDFUNDING, LIBERAPAY, ... (13 total)
+- **GistOrderField**: CREATED_AT, PUSHED_AT, UPDATED_AT
+- **GistPrivacy**: ALL, PUBLIC, SECRET
+- **GitSignatureState**: BAD_CERT, BAD_EMAIL, EXPIRED_KEY, GPGVERIFY_ERROR, GPGVERIFY_UNAVAILABLE, INVALID, MALFORMED_SIG, NOT_SIGNING_KEY, ... (17 total)
+- **IdentityProviderConfigurationState**: CONFIGURED, ENFORCED, UNCONFIGURED
+- **IpAllowListEnabledSettingValue**: DISABLED, ENABLED
+- **IpAllowListEntryOrderField**: ALLOW_LIST_VALUE, CREATED_AT
+- **IpAllowListForInstalledAppsEnabledSettingValue**: DISABLED, ENABLED
+- **IpAllowListUserLevelEnforcementEnabledSettingValue**: DISABLED, ENABLED
+- **IssueClosedStateReason**: COMPLETED, DUPLICATE, NOT_PLANNED
+- **IssueCommentOrderField**: UPDATED_AT
+- **IssueDependencyOrderField**: CREATED_AT, DEPENDENCY_ADDED_AT
+- **IssueFieldDataType**: DATE, NUMBER, SINGLE_SELECT, TEXT
+- **IssueFieldOrderField**: CREATED_AT, NAME
+- **IssueFieldSingleSelectOptionColor**: BLUE, GRAY, GREEN, ORANGE, PINK, PURPLE, RED, YELLOW
+- **IssueFieldVisibility**: ALL, ORG_ONLY
+- **IssueOrderField**: COMMENTS, CREATED_AT, UPDATED_AT
+- **IssueSearchType**: HYBRID, LEXICAL, SEMANTIC
+- **IssueState**: CLOSED, OPEN
+- **IssueStateReason**: COMPLETED, DUPLICATE, NOT_PLANNED, REOPENED
+- **IssueTimelineItemsItemType**: ADDED_TO_PROJECT_EVENT, ADDED_TO_PROJECT_V2_EVENT, ASSIGNED_EVENT, BLOCKED_BY_ADDED_EVENT, BLOCKED_BY_REMOVED_EVENT, BLOCKING_ADDED_EVENT, BLOCKING_REMOVED_EVENT, CLOSED_EVENT, ... (51 total)
+- **IssueTypeColor**: BLUE, GRAY, GREEN, ORANGE, PINK, PURPLE, RED, YELLOW
+- **IssueTypeOrderField**: CREATED_AT, NAME
+- **LabelOrderField**: CREATED_AT, ISSUE_COUNT, NAME
+- **LanguageOrderField**: SIZE
+- **LexicalFallbackReason**: NON_ISSUE_TARGET, NO_ACCESSIBLE_REPOS, NO_TEXT_TERMS, ONLY_NON_SEMANTIC_FIELDS_REQUESTED, OR_BOOLEAN_NOT_SUPPORTED, QUOTED_TEXT, SERVER_ERROR
+- **LockReason**: OFF_TOPIC, RESOLVED, SPAM, TOO_HEATED
+- **MannequinOrderField**: CREATED_AT, LOGIN
+- **MergeCommitMessage**: BLANK, PR_BODY, PR_TITLE
+- **MergeCommitTitle**: MERGE_MESSAGE, PR_TITLE
+- **MergeQueueEntryState**: AWAITING_CHECKS, LOCKED, MERGEABLE, QUEUED, UNMERGEABLE
+- **MergeQueueGroupingStrategy**: ALLGREEN, HEADGREEN
+- **MergeQueueMergeMethod**: MERGE, REBASE, SQUASH
+- **MergeQueueMergingStrategy**: ALLGREEN, HEADGREEN
+- **MergeStateStatus**: BEHIND, BLOCKED, CLEAN, DIRTY, DRAFT, HAS_HOOKS, UNKNOWN, UNSTABLE
+- **MergeableState**: CONFLICTING, MERGEABLE, UNKNOWN
+- **MigrationSourceType**: AZURE_DEVOPS, BITBUCKET_SERVER, GITHUB_ARCHIVE
+- **MigrationState**: FAILED, FAILED_VALIDATION, IN_PROGRESS, NOT_STARTED, PENDING_VALIDATION, QUEUED, SUCCEEDED
+- **MilestoneOrderField**: CREATED_AT, DUE_DATE, NUMBER, UPDATED_AT
+- **MilestoneState**: CLOSED, OPEN
+- **NotificationRestrictionSettingValue**: DISABLED, ENABLED
+- **OIDCProviderType**: AAD
+- **OauthApplicationCreateAuditEntryState**: ACTIVE, PENDING_DELETION, SUSPENDED
+- **OperationType**: ACCESS, AUTHENTICATION, CREATE, MODIFY, REMOVE, RESTORE, TRANSFER
+- **OrderDirection**: ASC, DESC
+- **OrgAddMemberAuditEntryPermission**: ADMIN, READ
+- **OrgCreateAuditEntryBillingPlan**: BUSINESS, BUSINESS_PLUS, FREE, TIERED_PER_SEAT, UNLIMITED
+- **OrgEnterpriseOwnerOrderField**: LOGIN
+- **OrgRemoveBillingManagerAuditEntryReason**: SAML_EXTERNAL_IDENTITY_MISSING, SAML_SSO_ENFORCEMENT_REQUIRES_EXTERNAL_IDENTITY, TWO_FACTOR_REQUIREMENT_NON_COMPLIANCE
+- **OrgRemoveMemberAuditEntryMembershipType**: ADMIN, BILLING_MANAGER, DIRECT_MEMBER, OUTSIDE_COLLABORATOR, SUSPENDED, UNAFFILIATED
+- **OrgRemoveMemberAuditEntryReason**: SAML_EXTERNAL_IDENTITY_MISSING, SAML_SSO_ENFORCEMENT_REQUIRES_EXTERNAL_IDENTITY, TWO_FACTOR_ACCOUNT_RECOVERY, TWO_FACTOR_REQUIREMENT_NON_COMPLIANCE, USER_ACCOUNT_DELETED
+- **OrgRemoveOutsideCollaboratorAuditEntryMembershipType**: BILLING_MANAGER, OUTSIDE_COLLABORATOR, UNAFFILIATED
+- **OrgRemoveOutsideCollaboratorAuditEntryReason**: SAML_EXTERNAL_IDENTITY_MISSING, TWO_FACTOR_REQUIREMENT_NON_COMPLIANCE
+- **OrgUpdateDefaultRepositoryPermissionAuditEntryPermission**: ADMIN, NONE, READ, WRITE
+- **OrgUpdateMemberAuditEntryPermission**: ADMIN, READ
+- **OrgUpdateMemberRepositoryCreationPermissionAuditEntryVisibility**: ALL, INTERNAL, NONE, PRIVATE, PRIVATE_INTERNAL, PUBLIC, PUBLIC_INTERNAL, PUBLIC_PRIVATE
+- **OrganizationInvitationRole**: ADMIN, BILLING_MANAGER, DIRECT_MEMBER, REINSTATE
+- **OrganizationInvitationSource**: MEMBER, SCIM, UNKNOWN
+- **OrganizationInvitationType**: EMAIL, USER
+- **OrganizationMemberRole**: ADMIN, MEMBER
+- **OrganizationMembersCanCreateRepositoriesSettingValue**: ALL, DISABLED, INTERNAL, PRIVATE
+- **OrganizationMigrationState**: FAILED, FAILED_VALIDATION, IN_PROGRESS, NOT_STARTED, PENDING_VALIDATION, POST_REPO_MIGRATION, PRE_REPO_MIGRATION, QUEUED, ... (10 total)
+- **OrganizationOrderField**: CREATED_AT, LOGIN
+- **PackageFileOrderField**: CREATED_AT
+- **PackageOrderField**: CREATED_AT
+- **PackageType**: DEBIAN, DOCKER, MAVEN, NPM, NUGET, PYPI, RUBYGEMS
+- **PackageVersionOrderField**: CREATED_AT
+- **PatchStatus**: ADDED, CHANGED, COPIED, DELETED, MODIFIED, RENAMED
+- **PinnableItemType**: GIST, ISSUE, ORGANIZATION, PROJECT, PULL_REQUEST, REPOSITORY, TEAM, USER
+- **PinnedDiscussionGradient**: BLUE_MINT, BLUE_PURPLE, PINK_BLUE, PURPLE_CORAL, RED_ORANGE
+- **PinnedDiscussionPattern**: CHEVRON_UP, DOT, DOT_FILL, HEART_FILL, PLUS, ZAP
+- **PinnedEnvironmentOrderField**: POSITION
+- **ProjectCardArchivedState**: ARCHIVED, NOT_ARCHIVED
+- **ProjectCardState**: CONTENT_ONLY, NOTE_ONLY, REDACTED
+- **ProjectColumnPurpose**: DONE, IN_PROGRESS, TODO
+- **ProjectOrderField**: CREATED_AT, NAME, UPDATED_AT
+- **ProjectState**: CLOSED, OPEN
+- **ProjectTemplate**: AUTOMATED_KANBAN_V2, AUTOMATED_REVIEWS_KANBAN, BASIC_KANBAN, BUG_TRIAGE
+- **ProjectV2CustomFieldType**: DATE, ITERATION, NUMBER, SINGLE_SELECT, TEXT
+- **ProjectV2FieldOrderField**: CREATED_AT, NAME, POSITION
+- **ProjectV2FieldType**: ASSIGNEES, DATE, ISSUE_TYPE, ITERATION, LABELS, LINKED_PULL_REQUESTS, MILESTONE, NUMBER, ... (17 total)
+- **ProjectV2ItemFieldValueOrderField**: POSITION
+- **ProjectV2ItemOrderField**: POSITION
+- **ProjectV2ItemType**: DRAFT_ISSUE, ISSUE, PULL_REQUEST, REDACTED
+- **ProjectV2OrderField**: CREATED_AT, NUMBER, TITLE, UPDATED_AT
+- **ProjectV2PermissionLevel**: ADMIN, READ, WRITE
+- **ProjectV2Roles**: ADMIN, NONE, READER, WRITER
+- **ProjectV2SingleSelectFieldOptionColor**: BLUE, GRAY, GREEN, ORANGE, PINK, PURPLE, RED, YELLOW
+- **ProjectV2State**: CLOSED, OPEN
+- **ProjectV2StatusUpdateOrderField**: CREATED_AT
+- **ProjectV2StatusUpdateStatus**: AT_RISK, COMPLETE, INACTIVE, OFF_TRACK, ON_TRACK
+- **ProjectV2ViewLayout**: BOARD_LAYOUT, ROADMAP_LAYOUT, TABLE_LAYOUT
+- **ProjectV2ViewOrderField**: CREATED_AT, NAME, POSITION
+- **ProjectV2WorkflowsOrderField**: CREATED_AT, NAME, NUMBER, UPDATED_AT
+- **PullRequestAllowedMergeMethods**: MERGE, REBASE, SQUASH
+- **PullRequestBranchUpdateMethod**: MERGE, REBASE
+- **PullRequestCreationPolicy**: ALL, COLLABORATORS_ONLY
+- **PullRequestMergeMethod**: MERGE, REBASE, SQUASH
+- **PullRequestOrderField**: CREATED_AT, UPDATED_AT
+- **PullRequestReviewCommentState**: PENDING, SUBMITTED
+- **PullRequestReviewDecision**: APPROVED, CHANGES_REQUESTED, REVIEW_REQUIRED
+- **PullRequestReviewEvent**: APPROVE, COMMENT, DISMISS, REQUEST_CHANGES
+- **PullRequestReviewState**: APPROVED, CHANGES_REQUESTED, COMMENTED, DISMISSED, PENDING
+- **PullRequestReviewThreadSubjectType**: FILE, LINE
+- **PullRequestState**: CLOSED, MERGED, OPEN
+- **PullRequestTimelineItemsItemType**: ADDED_TO_MERGE_QUEUE_EVENT, ADDED_TO_PROJECT_EVENT, ADDED_TO_PROJECT_V2_EVENT, ASSIGNED_EVENT, AUTOMATIC_BASE_CHANGE_FAILED_EVENT, AUTOMATIC_BASE_CHANGE_SUCCEEDED_EVENT, AUTO_MERGE_DISABLED_EVENT, AUTO_MERGE_ENABLED_EVENT, ... (78 total)
+- **PullRequestUpdateState**: CLOSED, OPEN
+- **ReactionContent**: CONFUSED, EYES, HEART, HOORAY, LAUGH, ROCKET, THUMBS_DOWN, THUMBS_UP
+- **ReactionOrderField**: CREATED_AT
+- **RefOrderField**: ALPHABETICAL, TAG_COMMIT_DATE
+- **ReleaseOrderField**: CREATED_AT, NAME
+- **RepoAccessAuditEntryVisibility**: INTERNAL, PRIVATE, PUBLIC
+- **RepoAddMemberAuditEntryVisibility**: INTERNAL, PRIVATE, PUBLIC
+- **RepoArchivedAuditEntryVisibility**: INTERNAL, PRIVATE, PUBLIC
+- **RepoChangeMergeSettingAuditEntryMergeType**: MERGE, REBASE, SQUASH
+- **RepoCreateAuditEntryVisibility**: INTERNAL, PRIVATE, PUBLIC
+- **RepoDestroyAuditEntryVisibility**: INTERNAL, PRIVATE, PUBLIC
+- **RepoRemoveMemberAuditEntryVisibility**: INTERNAL, PRIVATE, PUBLIC
+- **ReportedContentClassifiers**: ABUSE, DUPLICATE, OFF_TOPIC, OUTDATED, RESOLVED, SPAM
+- **RepositoryAffiliation**: COLLABORATOR, ORGANIZATION_MEMBER, OWNER
+- **RepositoryContributionType**: COMMIT, ISSUE, PULL_REQUEST, PULL_REQUEST_REVIEW, REPOSITORY
+- **RepositoryCustomPropertyValuesEditableBy**: ORG_ACTORS, ORG_AND_REPO_ACTORS
+- **RepositoryInteractionLimit**: COLLABORATORS_ONLY, CONTRIBUTORS_ONLY, EXISTING_USERS, NO_LIMIT
+- **RepositoryInteractionLimitExpiry**: ONE_DAY, ONE_MONTH, ONE_WEEK, SIX_MONTHS, THREE_DAYS
+- **RepositoryInteractionLimitOrigin**: ORGANIZATION, REPOSITORY, USER
+- **RepositoryInvitationOrderField**: CREATED_AT
+- **RepositoryLockReason**: BILLING, MIGRATING, MOVING, RENAME, TRADE_RESTRICTION, TRANSFERRING_OWNERSHIP
+- **RepositoryMigrationOrderDirection**: ASC, DESC
+- **RepositoryMigrationOrderField**: CREATED_AT
+- **RepositoryOrderField**: CREATED_AT, NAME, PUSHED_AT, STARGAZERS, UPDATED_AT
+- **RepositoryPermission**: ADMIN, MAINTAIN, READ, TRIAGE, WRITE
+- **RepositoryPrivacy**: PRIVATE, PUBLIC
+- **RepositoryRuleOrderField**: CREATED_AT, TYPE, UPDATED_AT
+- **RepositoryRuleType**: AUTHORIZATION, BRANCH_NAME_PATTERN, CODE_SCANNING, COMMITTER_EMAIL_PATTERN, COMMIT_AUTHOR_EMAIL_PATTERN, COMMIT_MESSAGE_PATTERN, COPILOT_CODE_REVIEW, CREATION, ... (31 total)
+- **RepositoryRulesetBypassActorBypassMode**: ALWAYS, EXEMPT, PULL_REQUEST
+- **RepositoryRulesetTarget**: BRANCH, PUSH, REPOSITORY, TAG
+- **RepositorySuggestedActorFilter**: CAN_BE_ASSIGNED, CAN_BE_AUTHOR
+- **RepositoryVisibility**: INTERNAL, PRIVATE, PUBLIC
+- **RepositoryVulnerabilityAlertDependencyRelationship**: DIRECT, INCONCLUSIVE, TRANSITIVE, UNKNOWN
+- **RepositoryVulnerabilityAlertDependencyScope**: DEVELOPMENT, RUNTIME
+- **RepositoryVulnerabilityAlertState**: AUTO_DISMISSED, DISMISSED, FIXED, OPEN
+- **RequestableCheckStatusState**: COMPLETED, IN_PROGRESS, PENDING, QUEUED, WAITING
+- **RoleInOrganization**: DIRECT_MEMBER, OWNER, UNAFFILIATED
+- **RuleEnforcement**: ACTIVE, DISABLED, EVALUATE
+- **SamlDigestAlgorithm**: SHA1, SHA256, SHA384, SHA512
+- **SamlSignatureAlgorithm**: RSA_SHA1, RSA_SHA256, RSA_SHA384, RSA_SHA512
+- **SavedReplyOrderField**: UPDATED_AT
+- **SearchType**: DISCUSSION, ISSUE, ISSUE_ADVANCED, ISSUE_HYBRID, ISSUE_SEMANTIC, REPOSITORY, USER
+- **SecurityAdvisoryClassification**: GENERAL, MALWARE
+- **SecurityAdvisoryEcosystem**: ACTIONS, COMPOSER, ERLANG, GO, MAVEN, NPM, NUGET, PIP, ... (12 total)
+- **SecurityAdvisoryIdentifierType**: CVE, GHSA
+- **SecurityAdvisoryOrderField**: EPSS_PERCENTAGE, EPSS_PERCENTILE, PUBLISHED_AT, UPDATED_AT
+- **SecurityAdvisorySeverity**: CRITICAL, HIGH, LOW, MODERATE
+- **SecurityVulnerabilityOrderField**: UPDATED_AT
+- **SocialAccountProvider**: BLUESKY, FACEBOOK, GENERIC, HOMETOWN, INSTAGRAM, LINKEDIN, MASTODON, NPM, ... (12 total)
+- **SponsorAndLifetimeValueOrderField**: LIFETIME_VALUE, SPONSOR_LOGIN, SPONSOR_RELEVANCE
+- **SponsorOrderField**: LOGIN, RELEVANCE
+- **SponsorableOrderField**: LOGIN
+- **SponsorsActivityAction**: CANCELLED_SPONSORSHIP, NEW_SPONSORSHIP, PENDING_CHANGE, REFUND, SPONSOR_MATCH_DISABLED, TIER_CHANGE
+- **SponsorsActivityOrderField**: TIMESTAMP
+- **SponsorsActivityPeriod**: ALL, DAY, MONTH, WEEK
+- **SponsorsCountryOrRegionCode**: AD, AE, AF, AG, AI, AL, AM, AO, ... (247 total)
+- **SponsorsGoalKind**: MONTHLY_SPONSORSHIP_AMOUNT, TOTAL_SPONSORS_COUNT
+- **SponsorsListingFeaturedItemFeatureableType**: REPOSITORY, USER
+- **SponsorsTierOrderField**: CREATED_AT, MONTHLY_PRICE_IN_CENTS
+- **SponsorshipNewsletterOrderField**: CREATED_AT
+- **SponsorshipOrderField**: CREATED_AT
+- **SponsorshipPaymentSource**: GITHUB, PATREON
+- **SponsorshipPrivacy**: PRIVATE, PUBLIC
+- **SquashMergeCommitMessage**: BLANK, COMMIT_MESSAGES, PR_BODY
+- **SquashMergeCommitTitle**: COMMIT_OR_PR_TITLE, PR_TITLE
+- **StarOrderField**: STARRED_AT
+- **StatusState**: ERROR, EXPECTED, FAILURE, PENDING, SUCCESS
+- **SubscriptionState**: IGNORED, SUBSCRIBED, UNSUBSCRIBED
+- **TeamMemberOrderField**: CREATED_AT, LOGIN
+- **TeamMemberRole**: MAINTAINER, MEMBER
+- **TeamMembershipType**: ALL, CHILD_TEAM, IMMEDIATE
+- **TeamNotificationSetting**: NOTIFICATIONS_DISABLED, NOTIFICATIONS_ENABLED
+- **TeamOrderField**: NAME
+- **TeamPrivacy**: SECRET, VISIBLE
+- **TeamRepositoryOrderField**: CREATED_AT, NAME, PERMISSION, PUSHED_AT, STARGAZERS, UPDATED_AT
+- **TeamReviewAssignmentAlgorithm**: LOAD_BALANCE, ROUND_ROBIN
+- **TeamRole**: ADMIN, MEMBER
+- **ThreadSubscriptionFormAction**: NONE, SUBSCRIBE, UNSUBSCRIBE
+- **ThreadSubscriptionState**: DISABLED, IGNORING_LIST, IGNORING_THREAD, NONE, SUBSCRIBED_TO_LIST, SUBSCRIBED_TO_THREAD, SUBSCRIBED_TO_THREAD_EVENTS, SUBSCRIBED_TO_THREAD_TYPE, ... (9 total)
+- **TopicSuggestionDeclineReason**: NOT_RELEVANT, PERSONAL_PREFERENCE, TOO_GENERAL, TOO_SPECIFIC
+- **TrackedIssueStates**: CLOSED, OPEN
+- **TwoFactorCredentialSecurityType**: DISABLED, INSECURE, SECURE
+- **UserBlockDuration**: ONE_DAY, ONE_MONTH, ONE_WEEK, PERMANENT, THREE_DAYS
+- **UserStatusOrderField**: UPDATED_AT
+- **UserViewType**: PRIVATE, PUBLIC
+- **VerifiableDomainOrderField**: CREATED_AT, DOMAIN
+- **WorkflowRunOrderField**: CREATED_AT
+- **WorkflowState**: ACTIVE, DELETED, DISABLED_FORK, DISABLED_INACTIVITY, DISABLED_MANUALLY
+
+## Unions
+
+Total: 47 unions.
+
+- **Assignee**: Bot, Mannequin, Organization, User
+- **AuditEntryActor**: Bot, Organization, User
+- **BranchActorAllowanceActor**: App, Team, User
+- **BypassActor**: App, Team, User
+- **Claimable**: Mannequin, User
+- **Closer**: Commit, ProjectV2, PullRequest
+- **CreatedIssueOrRestrictedContribution**: CreatedIssueContribution, RestrictedContribution
+- **CreatedPullRequestOrRestrictedContribution**: CreatedPullRequestContribution, RestrictedContribution
+- **CreatedRepositoryOrRestrictedContribution**: CreatedRepositoryContribution, RestrictedContribution
+- **CustomPropertySource**: Enterprise, Organization
+- **DeploymentReviewer**: Team, User
+- **EnterpriseMember**: EnterpriseUserAccount, User
+- **IpAllowListOwner**: App, Enterprise, Organization
+- **IssueFieldValue**: IssueFieldDateValue, IssueFieldNumberValue, IssueFieldSingleSelectValue, IssueFieldTextValue
+- **IssueFields**: IssueFieldDate, IssueFieldNumber, IssueFieldSingleSelect, IssueFieldText
+- **IssueOrPullRequest**: Issue, PullRequest
+- **IssueTimelineItem**: AssignedEvent, ClosedEvent, Commit, CrossReferencedEvent, DemilestonedEvent, IssueComment ... (19 total)
+- **IssueTimelineItems**: AddedToProjectEvent, AddedToProjectV2Event, AssignedEvent, BlockedByAddedEvent, BlockedByRemovedEvent, BlockingAddedEvent ... (51 total)
+- **MilestoneItem**: Issue, PullRequest
+- **OrgRestoreMemberAuditEntryMembership**: OrgRestoreMemberMembershipOrganizationAuditEntryData, OrgRestoreMemberMembershipRepositoryAuditEntryData, OrgRestoreMemberMembershipTeamAuditEntryData
+- **OrganizationAuditEntry**: MembersCanDeleteReposClearAuditEntry, MembersCanDeleteReposDisableAuditEntry, MembersCanDeleteReposEnableAuditEntry, OauthApplicationCreateAuditEntry, OrgAddBillingManagerAuditEntry, OrgAddMemberAuditEntry ... (60 total)
+- **OrganizationOrUser**: Organization, User
+- **PermissionGranter**: Organization, Repository, Team
+- **PinnableItem**: Gist, Repository
+- **ProjectCardItem**: Issue, PullRequest
+- **ProjectV2Actor**: Team, User
+- **ProjectV2FieldConfiguration**: ProjectV2Field, ProjectV2IterationField, ProjectV2SingleSelectField
+- **ProjectV2IssueFieldValues**: IssueFieldDateValue, IssueFieldNumberValue, IssueFieldSingleSelectValue, IssueFieldTextValue
+- **ProjectV2ItemContent**: DraftIssue, Issue, PullRequest
+- **ProjectV2ItemFieldValue**: ProjectV2ItemFieldDateValue, ProjectV2ItemFieldIterationValue, ProjectV2ItemFieldLabelValue, ProjectV2ItemFieldMilestoneValue, ProjectV2ItemFieldNumberValue, ProjectV2ItemFieldPullRequestValue ... (12 total)
+- **PullRequestTimelineItem**: AssignedEvent, BaseRefDeletedEvent, BaseRefForcePushedEvent, ClosedEvent, Commit, CommitCommentThread ... (33 total)
+- **PullRequestTimelineItems**: AddedToMergeQueueEvent, AddedToProjectEvent, AddedToProjectV2Event, AssignedEvent, AutoMergeDisabledEvent, AutoMergeEnabledEvent ... (78 total)
+- **PushAllowanceActor**: App, Team, User
+- **Reactor**: Bot, Mannequin, Organization, User
+- **ReferencedSubject**: Issue, PullRequest
+- **RenamedTitleSubject**: Issue, PullRequest
+- **RequestedReviewer**: Bot, Mannequin, Team, User
+- **ReviewDismissalAllowanceActor**: App, Team, User
+- **RuleParameters**: BranchNamePatternParameters, CodeScanningParameters, CommitAuthorEmailPatternParameters, CommitMessagePatternParameters, CommitterEmailPatternParameters, CopilotCodeReviewParameters ... (17 total)
+- **RuleSource**: Enterprise, Organization, Repository
+- **SearchResultItem**: App, Discussion, Issue, MarketplaceListing, Organization, PullRequest ... (8 total)
+- **Sponsor**: Organization, User
+- **SponsorableItem**: Organization, User
+- **SponsorsListingFeatureableItem**: Repository, User
+- **StatusCheckRollupContext**: CheckRun, StatusContext
+- **UserListItems**: Repository
+- **VerifiableDomainOwner**: Enterprise, Organization
+
+## Input Objects
+
+Total: 394 input types.
+
+- **AbortQueuedMigrationsInput**: Autogenerated input type of AbortQueuedMigrations.
+- **AbortRepositoryMigrationInput**: Autogenerated input type of AbortRepositoryMigration.
+- **AcceptEnterpriseAdministratorInvitationInput**: Autogenerated input type of AcceptEnterpriseAdministratorInvitation.
+- **AcceptEnterpriseMemberInvitationInput**: Autogenerated input type of AcceptEnterpriseMemberInvitation.
+- **AcceptTopicSuggestionInput**: Autogenerated input type of AcceptTopicSuggestion.
+- **AccessUserNamespaceRepositoryInput**: Autogenerated input type of AccessUserNamespaceRepository.
+- **AddAssigneesToAssignableInput**: Autogenerated input type of AddAssigneesToAssignable.
+- **AddBlockedByInput**: Autogenerated input type of AddBlockedBy.
+- **AddCommentInput**: Autogenerated input type of AddComment.
+- **AddDiscussionCommentInput**: Autogenerated input type of AddDiscussionComment.
+- **AddDiscussionPollVoteInput**: Autogenerated input type of AddDiscussionPollVote.
+- **AddEnterpriseOrganizationMemberInput**: Autogenerated input type of AddEnterpriseOrganizationMember.
+- **AddEnterpriseSupportEntitlementInput**: Autogenerated input type of AddEnterpriseSupportEntitlement.
+- **AddLabelsToLabelableInput**: Autogenerated input type of AddLabelsToLabelable.
+- **AddProjectCardInput**: Autogenerated input type of AddProjectCard.
+- **AddProjectColumnInput**: Autogenerated input type of AddProjectColumn.
+- **AddProjectV2DraftIssueInput**: Autogenerated input type of AddProjectV2DraftIssue.
+- **AddProjectV2ItemByIdInput**: Autogenerated input type of AddProjectV2ItemById.
+- **AddPullRequestReviewCommentInput**: Autogenerated input type of AddPullRequestReviewComment.
+- **AddPullRequestReviewInput**: Autogenerated input type of AddPullRequestReview.
+- **AddPullRequestReviewThreadInput**: Autogenerated input type of AddPullRequestReviewThread.
+- **AddPullRequestReviewThreadReplyInput**: Autogenerated input type of AddPullRequestReviewThreadReply.
+- **AddReactionInput**: Autogenerated input type of AddReaction.
+- **AddStarInput**: Autogenerated input type of AddStar.
+- **AddSubIssueInput**: Autogenerated input type of AddSubIssue.
+- **AddUpvoteInput**: Autogenerated input type of AddUpvote.
+- **AddVerifiableDomainInput**: Autogenerated input type of AddVerifiableDomain.
+- **AgentAssignmentInput**: Represents configuration for assigning Copilot to an issue (public variant).
+- **ApproveDeploymentsInput**: Autogenerated input type of ApproveDeployments.
+- **ApproveVerifiableDomainInput**: Autogenerated input type of ApproveVerifiableDomain.
+- **ArchiveProjectV2ItemInput**: Autogenerated input type of ArchiveProjectV2Item.
+- **ArchiveRepositoryInput**: Autogenerated input type of ArchiveRepository.
+- **AuditLogOrder**: Ordering options for Audit Log connections.
+- **BranchNamePatternParametersInput**: Parameters to be used for the branch_name_pattern rule.
+- **BulkSponsorship**: Information about a sponsorship to make for a user or organization with a GitHub
+Sponsors profile, as part of sponsor...
+- **CancelEnterpriseAdminInvitationInput**: Autogenerated input type of CancelEnterpriseAdminInvitation.
+- **CancelEnterpriseMemberInvitationInput**: Autogenerated input type of CancelEnterpriseMemberInvitation.
+- **CancelSponsorshipInput**: Autogenerated input type of CancelSponsorship.
+- **ChangeUserStatusInput**: Autogenerated input type of ChangeUserStatus.
+- **CheckAnnotationData**: Information from a check run analysis to specific lines of code.
+- **CheckAnnotationRange**: Information from a check run analysis to specific lines of code.
+- **CheckRunAction**: Possible further actions the integrator can perform.
+- **CheckRunFilter**: The filters that are available when fetching check runs.
+- **CheckRunOutput**: Descriptive details about the check run.
+- **CheckRunOutputImage**: Images attached to the check run output displayed in the GitHub pull request UI.
+- **CheckSuiteAutoTriggerPreference**: The auto-trigger preferences that are available for check suites.
+- **CheckSuiteFilter**: The filters that are available when fetching check suites.
+- **ClearLabelsFromLabelableInput**: Autogenerated input type of ClearLabelsFromLabelable.
+- **ClearProjectV2ItemFieldValueInput**: Autogenerated input type of ClearProjectV2ItemFieldValue.
+- **CloneProjectInput**: Autogenerated input type of CloneProject.
+- **CloneTemplateRepositoryInput**: Autogenerated input type of CloneTemplateRepository.
+- **CloseDiscussionInput**: Autogenerated input type of CloseDiscussion.
+- **CloseIssueInput**: Autogenerated input type of CloseIssue.
+- **ClosePullRequestInput**: Autogenerated input type of ClosePullRequest.
+- **CodeScanningParametersInput**: Choose which tools must provide code scanning results before the reference is
+updated. When configured, code scanning...
+- **CodeScanningToolInput**: A tool that must provide code scanning results for this rule to pass.
+- **CommitAuthor**: Specifies an author for filtering Git commits.
+- **CommitAuthorEmailPatternParametersInput**: Parameters to be used for the commit_author_email_pattern rule.
+- **CommitContributionOrder**: Ordering options for commit contribution connections.
+- **CommitMessage**: A message to include with a new commit.
+- **CommitMessagePatternParametersInput**: Parameters to be used for the commit_message_pattern rule.
+- **CommittableBranch**: A git ref for a commit to be appended to.
+The ref must be a branch, i.e. its fully qualified name must start
+with `re...
+- **CommitterEmailPatternParametersInput**: Parameters to be used for the committer_email_pattern rule.
+- **ContributionOrder**: Ordering options for contribution connections.
+- **ConvertProjectCardNoteToIssueInput**: Autogenerated input type of ConvertProjectCardNoteToIssue.
+- **ConvertProjectV2DraftIssueItemToIssueInput**: Autogenerated input type of ConvertProjectV2DraftIssueItemToIssue.
+- **ConvertPullRequestToDraftInput**: Autogenerated input type of ConvertPullRequestToDraft.
+- **CopilotCodeReviewParametersInput**: Request Copilot code review for new pull requests automatically if the author
+has access to Copilot code review and t...
+- **CopyProjectV2Input**: Autogenerated input type of CopyProjectV2.
+- **CreateAttributionInvitationInput**: Autogenerated input type of CreateAttributionInvitation.
+- **CreateBranchProtectionRuleInput**: Autogenerated input type of CreateBranchProtectionRule.
+- **CreateCheckRunInput**: Autogenerated input type of CreateCheckRun.
+- **CreateCheckSuiteInput**: Autogenerated input type of CreateCheckSuite.
+- **CreateCommitOnBranchInput**: Autogenerated input type of CreateCommitOnBranch.
+- **CreateDeploymentInput**: Autogenerated input type of CreateDeployment.
+- **CreateDeploymentStatusInput**: Autogenerated input type of CreateDeploymentStatus.
+- **CreateDiscussionInput**: Autogenerated input type of CreateDiscussion.
+- **CreateEnterpriseOrganizationInput**: Autogenerated input type of CreateEnterpriseOrganization.
+- **CreateEnvironmentInput**: Autogenerated input type of CreateEnvironment.
+- **CreateIpAllowListEntryInput**: Autogenerated input type of CreateIpAllowListEntry.
+- **CreateIssueFieldInput**: Autogenerated input type of CreateIssueField.
+- **CreateIssueFieldValueInput**: Autogenerated input type of CreateIssueFieldValue.
+- **CreateIssueInput**: Autogenerated input type of CreateIssue.
+- **CreateIssueTypeInput**: Autogenerated input type of CreateIssueType.
+- **CreateLabelInput**: Autogenerated input type of CreateLabel.
+- **CreateLinkedBranchInput**: Autogenerated input type of CreateLinkedBranch.
+- **CreateMigrationSourceInput**: Autogenerated input type of CreateMigrationSource.
+- **CreateProjectInput**: Autogenerated input type of CreateProject.
+- **CreateProjectV2FieldInput**: Autogenerated input type of CreateProjectV2Field.
+- **CreateProjectV2Input**: Autogenerated input type of CreateProjectV2.
+- **CreateProjectV2IssueFieldInput**: Autogenerated input type of CreateProjectV2IssueField.
+- **CreateProjectV2StatusUpdateInput**: Autogenerated input type of CreateProjectV2StatusUpdate.
+- **CreatePullRequestInput**: Autogenerated input type of CreatePullRequest.
+- **CreateRefInput**: Autogenerated input type of CreateRef.
+- **CreateRepositoryCustomPropertyInput**: Autogenerated input type of CreateRepositoryCustomProperty.
+- **CreateRepositoryInput**: Autogenerated input type of CreateRepository.
+- **CreateRepositoryRulesetInput**: Autogenerated input type of CreateRepositoryRuleset.
+- **CreateSponsorsListingInput**: Autogenerated input type of CreateSponsorsListing.
+- **CreateSponsorsTierInput**: Autogenerated input type of CreateSponsorsTier.
+- **CreateSponsorshipInput**: Autogenerated input type of CreateSponsorship.
+- **CreateSponsorshipsInput**: Autogenerated input type of CreateSponsorships.
+- **CreateUserListInput**: Autogenerated input type of CreateUserList.
+- **CustomPropertyValueInput**: The custom property name and value to be set.
+- **DeclineTopicSuggestionInput**: Autogenerated input type of DeclineTopicSuggestion.
+- **DeleteBranchProtectionRuleInput**: Autogenerated input type of DeleteBranchProtectionRule.
+- **DeleteDeploymentInput**: Autogenerated input type of DeleteDeployment.
+- **DeleteDiscussionCommentInput**: Autogenerated input type of DeleteDiscussionComment.
+- **DeleteDiscussionInput**: Autogenerated input type of DeleteDiscussion.
+- **DeleteEnvironmentInput**: Autogenerated input type of DeleteEnvironment.
+- **DeleteIpAllowListEntryInput**: Autogenerated input type of DeleteIpAllowListEntry.
+- **DeleteIssueCommentInput**: Autogenerated input type of DeleteIssueComment.
+- **DeleteIssueFieldInput**: Autogenerated input type of DeleteIssueField.
+- **DeleteIssueFieldValueInput**: Autogenerated input type of DeleteIssueFieldValue.
+- **DeleteIssueInput**: Autogenerated input type of DeleteIssue.
+- **DeleteIssueTypeInput**: Autogenerated input type of DeleteIssueType.
+- **DeleteLabelInput**: Autogenerated input type of DeleteLabel.
+- **DeleteLinkedBranchInput**: Autogenerated input type of DeleteLinkedBranch.
+- **DeletePackageVersionInput**: Autogenerated input type of DeletePackageVersion.
+- **DeleteProjectCardInput**: Autogenerated input type of DeleteProjectCard.
+- **DeleteProjectColumnInput**: Autogenerated input type of DeleteProjectColumn.
+- **DeleteProjectInput**: Autogenerated input type of DeleteProject.
+- **DeleteProjectV2FieldInput**: Autogenerated input type of DeleteProjectV2Field.
+- **DeleteProjectV2Input**: Autogenerated input type of DeleteProjectV2.
+- **DeleteProjectV2ItemInput**: Autogenerated input type of DeleteProjectV2Item.
+- **DeleteProjectV2StatusUpdateInput**: Autogenerated input type of DeleteProjectV2StatusUpdate.
+- **DeleteProjectV2WorkflowInput**: Autogenerated input type of DeleteProjectV2Workflow.
+- **DeletePullRequestReviewCommentInput**: Autogenerated input type of DeletePullRequestReviewComment.
+- **DeletePullRequestReviewInput**: Autogenerated input type of DeletePullRequestReview.
+- **DeleteRefInput**: Autogenerated input type of DeleteRef.
+- **DeleteRepositoryCustomPropertyInput**: Autogenerated input type of DeleteRepositoryCustomProperty.
+- **DeleteRepositoryRulesetInput**: Autogenerated input type of DeleteRepositoryRuleset.
+- **DeleteUserListInput**: Autogenerated input type of DeleteUserList.
+- **DeleteVerifiableDomainInput**: Autogenerated input type of DeleteVerifiableDomain.
+- **DeploymentOrder**: Ordering options for deployment connections.
+- **DequeuePullRequestInput**: Autogenerated input type of DequeuePullRequest.
+- **DisablePullRequestAutoMergeInput**: Autogenerated input type of DisablePullRequestAutoMerge.
+- **DiscussionOrder**: Ways in which lists of discussions can be ordered upon return.
+- **DiscussionPollOptionOrder**: Ordering options for discussion poll option connections.
+- **DismissPullRequestReviewInput**: Autogenerated input type of DismissPullRequestReview.
+- **DismissRepositoryVulnerabilityAlertInput**: Autogenerated input type of DismissRepositoryVulnerabilityAlert.
+- **DraftPullRequestReviewComment**: Specifies a review comment to be left with a Pull Request Review.
+- **DraftPullRequestReviewThread**: Specifies a review comment thread to be left with a Pull Request Review.
+- **EnablePullRequestAutoMergeInput**: Autogenerated input type of EnablePullRequestAutoMerge.
+- **EnqueuePullRequestInput**: Autogenerated input type of EnqueuePullRequest.
+- **EnterpriseAdministratorInvitationOrder**: Ordering options for enterprise administrator invitation connections.
+- **EnterpriseMemberInvitationOrder**: Ordering options for enterprise administrator invitation connections.
+- **EnterpriseMemberOrder**: Ordering options for enterprise member connections.
+- **EnterpriseOrder**: Ordering options for enterprises.
+- **EnterpriseServerInstallationOrder**: Ordering options for Enterprise Server installation connections.
+- **EnterpriseServerUserAccountEmailOrder**: Ordering options for Enterprise Server user account email connections.
+- **EnterpriseServerUserAccountOrder**: Ordering options for Enterprise Server user account connections.
+- **EnterpriseServerUserAccountsUploadOrder**: Ordering options for Enterprise Server user accounts upload connections.
+- **Environments**: Ordering options for environments.
+- **FileAddition**: A command to add a file at the given path with the given contents as part of a
+commit.  Any existing file at that tha...
+- **FileChanges**: A description of a set of changes to a file tree to be made as part of
+a git commit, modeled as zero or more file `ad...
+- **FileDeletion**: A command to delete the file at the given path as part of a commit.
+- **FileExtensionRestrictionParametersInput**: Prevent commits that include files with specified file extensions from being pushed to the commit graph.
+- **FilePathRestrictionParametersInput**: Prevent commits that include changes in specified file and folder paths from
+being pushed to the commit graph. This i...
+- **FollowOrganizationInput**: Autogenerated input type of FollowOrganization.
+- **FollowUserInput**: Autogenerated input type of FollowUser.
+- **GistOrder**: Ordering options for gist connections.
+- **GrantEnterpriseOrganizationsMigratorRoleInput**: Autogenerated input type of GrantEnterpriseOrganizationsMigratorRole.
+- **GrantMigratorRoleInput**: Autogenerated input type of GrantMigratorRole.
+- **ImportProjectInput**: Autogenerated input type of ImportProject.
+- **InviteEnterpriseAdminInput**: Autogenerated input type of InviteEnterpriseAdmin.
+- **InviteEnterpriseMemberInput**: Autogenerated input type of InviteEnterpriseMember.
+- **IpAllowListEntryOrder**: Ordering options for IP allow list entry connections.
+- **IssueCommentOrder**: Ways in which lists of issue comments can be ordered upon return.
+- **IssueDependencyOrder**: Ordering options issue dependencies.
+- **IssueFieldCreateOrUpdateInput**: Represents an issue field value that must be set on an issue during issue creation.
+- **IssueFieldOrder**: Ordering options for issue field connections.
+- **IssueFieldSingleSelectOptionInput**: A single selection option for an issue field.
+- **IssueFilters**: Ways in which to filter lists of issues.
+- **IssueOrder**: Ways in which lists of issues can be ordered upon return.
+- **IssueTypeOrder**: Ordering options for issue types connections.
+- **LabelOrder**: Ways in which lists of labels can be ordered upon return.
+- **LanguageOrder**: Ordering options for language connections.
+- **LinkProjectV2ToRepositoryInput**: Autogenerated input type of LinkProjectV2ToRepository.
+- **LinkProjectV2ToTeamInput**: Autogenerated input type of LinkProjectV2ToTeam.
+- **LinkRepositoryToProjectInput**: Autogenerated input type of LinkRepositoryToProject.
+- **LockLockableInput**: Autogenerated input type of LockLockable.
+- **MannequinOrder**: Ordering options for mannequins.
+- **MarkDiscussionCommentAsAnswerInput**: Autogenerated input type of MarkDiscussionCommentAsAnswer.
+- **MarkFileAsViewedInput**: Autogenerated input type of MarkFileAsViewed.
+- **MarkProjectV2AsTemplateInput**: Autogenerated input type of MarkProjectV2AsTemplate.
+- **MarkPullRequestReadyForReviewInput**: Autogenerated input type of MarkPullRequestReadyForReview.
+- **MaxFilePathLengthParametersInput**: Prevent commits that include file paths that exceed the specified character limit from being pushed to the commit graph.
+- **MaxFileSizeParametersInput**: Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.
+- **MergeBranchInput**: Autogenerated input type of MergeBranch.
+- **MergePullRequestInput**: Autogenerated input type of MergePullRequest.
+- **MergeQueueParametersInput**: Merges must be performed via a merge queue.
+- **MilestoneOrder**: Ordering options for milestone connections.
+- **MinimizeCommentInput**: Autogenerated input type of MinimizeComment.
+- **MoveProjectCardInput**: Autogenerated input type of MoveProjectCard.
+- **MoveProjectColumnInput**: Autogenerated input type of MoveProjectColumn.
+- **OrgEnterpriseOwnerOrder**: Ordering options for an organization's enterprise owner connections.
+- **OrganizationOrder**: Ordering options for organization connections.
+- **OrganizationPropertyConditionTargetInput**: Parameters to be used for the organization_property condition.
+- **OrganizationPropertyTargetDefinitionInput**: A property that must match.
+- **PackageFileOrder**: Ways in which lists of package files can be ordered upon return.
+- **PackageOrder**: Ways in which lists of packages can be ordered upon return.
+- **PackageVersionOrder**: Ways in which lists of package versions can be ordered upon return.
+- **PinEnvironmentInput**: Autogenerated input type of PinEnvironment.
+- **PinIssueCommentInput**: Autogenerated input type of PinIssueComment.
+- **PinIssueInput**: Autogenerated input type of PinIssue.
+- **PinnedEnvironmentOrder**: Ordering options for pinned environments.
+- **ProjectCardImport**: An issue or PR and its owning repository to be used in a project card.
+- **ProjectColumnImport**: A project column and a list of its issues and PRs.
+- **ProjectOrder**: Ways in which lists of projects can be ordered upon return.
+- **ProjectV2Collaborator**: A collaborator to update on a project. Only one of the userId or teamId should be provided.
+- **ProjectV2FieldOrder**: Ordering options for project v2 field connections.
+- **ProjectV2FieldValue**: The values that can be used to update a field of an item inside a Project. Only 1 value can be updated at a time.
+- **ProjectV2Filters**: Ways in which to filter lists of projects.
+- **ProjectV2ItemFieldValueOrder**: Ordering options for project v2 item field value connections.
+- **ProjectV2ItemOrder**: Ordering options for project v2 item connections.
+- **ProjectV2Iteration**: Represents an iteration.
+- **ProjectV2IterationFieldConfigurationInput**: Represents an iteration field configuration.
+- **ProjectV2Order**: Ways in which lists of projects can be ordered upon return.
+- **ProjectV2SingleSelectFieldOptionInput**: Represents a single select field option.
+- **ProjectV2StatusOrder**: Ways in which project v2 status updates can be ordered.
+- **ProjectV2ViewOrder**: Ordering options for project v2 view connections.
+- **ProjectV2WorkflowOrder**: Ordering options for project v2 workflows connections.
+- **PromoteRepositoryCustomPropertyInput**: Autogenerated input type of PromoteRepositoryCustomProperty.
+- **PropertyTargetDefinitionInput**: A property that must match.
+- **PublishSponsorsTierInput**: Autogenerated input type of PublishSponsorsTier.
+- **PullRequestOrder**: Ways in which lists of issues can be ordered upon return.
+- **PullRequestParametersInput**: Require all commits be made to a non-target branch and submitted via a pull request before they can be merged.
+- **ReactionOrder**: Ways in which lists of reactions can be ordered upon return.
+- **RefNameConditionTargetInput**: Parameters to be used for the ref_name condition.
+- **RefOrder**: Ways in which lists of git refs can be ordered upon return.
+- **RefUpdate**: A ref update.
+- **RegenerateEnterpriseIdentityProviderRecoveryCodesInput**: Autogenerated input type of RegenerateEnterpriseIdentityProviderRecoveryCodes.
+- **RegenerateVerifiableDomainTokenInput**: Autogenerated input type of RegenerateVerifiableDomainToken.
+- **RejectDeploymentsInput**: Autogenerated input type of RejectDeployments.
+- **ReleaseOrder**: Ways in which lists of releases can be ordered upon return.
+- **RemoveAssigneesFromAssignableInput**: Autogenerated input type of RemoveAssigneesFromAssignable.
+- **RemoveBlockedByInput**: Autogenerated input type of RemoveBlockedBy.
+- **RemoveEnterpriseAdminInput**: Autogenerated input type of RemoveEnterpriseAdmin.
+- **RemoveEnterpriseIdentityProviderInput**: Autogenerated input type of RemoveEnterpriseIdentityProvider.
+- **RemoveEnterpriseMemberInput**: Autogenerated input type of RemoveEnterpriseMember.
+- **RemoveEnterpriseOrganizationInput**: Autogenerated input type of RemoveEnterpriseOrganization.
+- **RemoveEnterpriseSupportEntitlementInput**: Autogenerated input type of RemoveEnterpriseSupportEntitlement.
+- **RemoveLabelsFromLabelableInput**: Autogenerated input type of RemoveLabelsFromLabelable.
+- **RemoveOutsideCollaboratorInput**: Autogenerated input type of RemoveOutsideCollaborator.
+- **RemoveReactionInput**: Autogenerated input type of RemoveReaction.
+- **RemoveStarInput**: Autogenerated input type of RemoveStar.
+- **RemoveSubIssueInput**: Autogenerated input type of RemoveSubIssue.
+- **RemoveUpvoteInput**: Autogenerated input type of RemoveUpvote.
+- **ReopenDiscussionInput**: Autogenerated input type of ReopenDiscussion.
+- **ReopenIssueInput**: Autogenerated input type of ReopenIssue.
+- **ReopenPullRequestInput**: Autogenerated input type of ReopenPullRequest.
+- **ReorderEnvironmentInput**: Autogenerated input type of ReorderEnvironment.
+- **ReplaceActorsForAssignableInput**: Autogenerated input type of ReplaceActorsForAssignable.
+- **RepositoryIdConditionTargetInput**: Parameters to be used for the repository_id condition.
+- **RepositoryInvitationOrder**: Ordering options for repository invitation connections.
+- **RepositoryMigrationOrder**: Ordering options for repository migrations.
+- **RepositoryNameConditionTargetInput**: Parameters to be used for the repository_name condition.
+- **RepositoryOrder**: Ordering options for repository connections.
+- **RepositoryPropertyConditionTargetInput**: Parameters to be used for the repository_property condition.
+- **RepositoryRuleConditionsInput**: Specifies the conditions required for a ruleset to evaluate.
+- **RepositoryRuleInput**: Specifies the attributes for a new or updated rule.
+- **RepositoryRuleOrder**: Ordering options for repository rules.
+- **RepositoryRulesetBypassActorInput**: Specifies the attributes for a new or updated ruleset bypass actor. Only one of
+`actor_id`, `repository_role_database...
+- **ReprioritizeSubIssueInput**: Autogenerated input type of ReprioritizeSubIssue.
+- **RequestReviewsByLoginInput**: Autogenerated input type of RequestReviewsByLogin.
+- **RequestReviewsInput**: Autogenerated input type of RequestReviews.
+- **RequiredDeploymentsParametersInput**: Choose which environments must be successfully deployed to before refs can be pushed into a ref that matches this rule.
+- **RequiredReviewerConfigurationInput**: A reviewing team, and file patterns describing which files they must approve changes to.
+- **RequiredStatusCheckInput**: Specifies the attributes for a new or updated required status check.
+- **RequiredStatusChecksParametersInput**: Choose which status checks must pass before the ref is updated. When enabled,
+commits must first be pushed to another...
+- **RerequestCheckSuiteInput**: Autogenerated input type of RerequestCheckSuite.
+- **ResolveReviewThreadInput**: Autogenerated input type of ResolveReviewThread.
+- **RetireSponsorsTierInput**: Autogenerated input type of RetireSponsorsTier.
+- **RevertPullRequestInput**: Autogenerated input type of RevertPullRequest.
+- **RevokeEnterpriseOrganizationsMigratorRoleInput**: Autogenerated input type of RevokeEnterpriseOrganizationsMigratorRole.
+- **RevokeMigratorRoleInput**: Autogenerated input type of RevokeMigratorRole.
+- **RuleParametersInput**: Specifies the parameters for a `RepositoryRule` object. Only one of the fields should be specified.
+- **SavedReplyOrder**: Ordering options for saved reply connections.
+- **SecurityAdvisoryIdentifierFilter**: An advisory identifier to filter results on.
+- **SecurityAdvisoryOrder**: Ordering options for security advisory connections.
+- **SecurityVulnerabilityOrder**: Ordering options for security vulnerability connections.
+- **SetEnterpriseIdentityProviderInput**: Autogenerated input type of SetEnterpriseIdentityProvider.
+- **SetIssueFieldValueInput**: Autogenerated input type of SetIssueFieldValue.
+- **SetOrganizationInteractionLimitInput**: Autogenerated input type of SetOrganizationInteractionLimit.
+- **SetRepositoryCustomPropertyValuesInput**: Autogenerated input type of SetRepositoryCustomPropertyValues.
+- **SetRepositoryInteractionLimitInput**: Autogenerated input type of SetRepositoryInteractionLimit.
+- **SetUserInteractionLimitInput**: Autogenerated input type of SetUserInteractionLimit.
+- **SponsorAndLifetimeValueOrder**: Ordering options for connections to get sponsor entities and associated USD amounts for GitHub Sponsors.
+- **SponsorOrder**: Ordering options for connections to get sponsor entities for GitHub Sponsors.
+- **SponsorableOrder**: Ordering options for connections to get sponsorable entities for GitHub Sponsors.
+- **SponsorsActivityOrder**: Ordering options for GitHub Sponsors activity connections.
+- **SponsorsTierOrder**: Ordering options for Sponsors tiers connections.
+- **SponsorshipNewsletterOrder**: Ordering options for sponsorship newsletter connections.
+- **SponsorshipOrder**: Ordering options for sponsorship connections.
+- **StarOrder**: Ways in which star connections can be ordered.
+- **StartOrganizationMigrationInput**: Autogenerated input type of StartOrganizationMigration.
+- **StartRepositoryMigrationInput**: Autogenerated input type of StartRepositoryMigration.
+- **StatusCheckConfigurationInput**: Required status check.
+- **SubmitPullRequestReviewInput**: Autogenerated input type of SubmitPullRequestReview.
+- **TagNamePatternParametersInput**: Parameters to be used for the tag_name_pattern rule.
+- **TeamMemberOrder**: Ordering options for team member connections.
+- **TeamOrder**: Ways in which team connections can be ordered.
+- **TeamRepositoryOrder**: Ordering options for team repository connections.
+- **TransferEnterpriseOrganizationInput**: Autogenerated input type of TransferEnterpriseOrganization.
+- **TransferIssueInput**: Autogenerated input type of TransferIssue.
+- **UnarchiveProjectV2ItemInput**: Autogenerated input type of UnarchiveProjectV2Item.
+- **UnarchiveRepositoryInput**: Autogenerated input type of UnarchiveRepository.
+- **UnfollowOrganizationInput**: Autogenerated input type of UnfollowOrganization.
+- **UnfollowUserInput**: Autogenerated input type of UnfollowUser.
+- **UnlinkProjectV2FromRepositoryInput**: Autogenerated input type of UnlinkProjectV2FromRepository.
+- **UnlinkProjectV2FromTeamInput**: Autogenerated input type of UnlinkProjectV2FromTeam.
+- **UnlinkRepositoryFromProjectInput**: Autogenerated input type of UnlinkRepositoryFromProject.
+- **UnlockLockableInput**: Autogenerated input type of UnlockLockable.
+- **UnmarkDiscussionCommentAsAnswerInput**: Autogenerated input type of UnmarkDiscussionCommentAsAnswer.
+- **UnmarkFileAsViewedInput**: Autogenerated input type of UnmarkFileAsViewed.
+- **UnmarkIssueAsDuplicateInput**: Autogenerated input type of UnmarkIssueAsDuplicate.
+- **UnmarkProjectV2AsTemplateInput**: Autogenerated input type of UnmarkProjectV2AsTemplate.
+- **UnminimizeCommentInput**: Autogenerated input type of UnminimizeComment.
+- **UnpinIssueCommentInput**: Autogenerated input type of UnpinIssueComment.
+- **UnpinIssueInput**: Autogenerated input type of UnpinIssue.
+- **UnresolveReviewThreadInput**: Autogenerated input type of UnresolveReviewThread.
+- **UpdateBranchProtectionRuleInput**: Autogenerated input type of UpdateBranchProtectionRule.
+- **UpdateCheckRunInput**: Autogenerated input type of UpdateCheckRun.
+- **UpdateCheckSuitePreferencesInput**: Autogenerated input type of UpdateCheckSuitePreferences.
+- **UpdateDiscussionCommentInput**: Autogenerated input type of UpdateDiscussionComment.
+- **UpdateDiscussionInput**: Autogenerated input type of UpdateDiscussion.
+- **UpdateEnterpriseAdministratorRoleInput**: Autogenerated input type of UpdateEnterpriseAdministratorRole.
+- **UpdateEnterpriseAllowPrivateRepositoryForkingSettingInput**: Autogenerated input type of UpdateEnterpriseAllowPrivateRepositoryForkingSetting.
+- **UpdateEnterpriseDefaultRepositoryPermissionSettingInput**: Autogenerated input type of UpdateEnterpriseDefaultRepositoryPermissionSetting.
+- **UpdateEnterpriseDeployKeySettingInput**: Autogenerated input type of UpdateEnterpriseDeployKeySetting.
+- **UpdateEnterpriseMembersCanChangeRepositoryVisibilitySettingInput**: Autogenerated input type of UpdateEnterpriseMembersCanChangeRepositoryVisibilitySetting.
+- **UpdateEnterpriseMembersCanCreateRepositoriesSettingInput**: Autogenerated input type of UpdateEnterpriseMembersCanCreateRepositoriesSetting.
+- **UpdateEnterpriseMembersCanDeleteIssuesSettingInput**: Autogenerated input type of UpdateEnterpriseMembersCanDeleteIssuesSetting.
+- **UpdateEnterpriseMembersCanDeleteRepositoriesSettingInput**: Autogenerated input type of UpdateEnterpriseMembersCanDeleteRepositoriesSetting.
+- **UpdateEnterpriseMembersCanInviteCollaboratorsSettingInput**: Autogenerated input type of UpdateEnterpriseMembersCanInviteCollaboratorsSetting.
+- **UpdateEnterpriseMembersCanMakePurchasesSettingInput**: Autogenerated input type of UpdateEnterpriseMembersCanMakePurchasesSetting.
+- **UpdateEnterpriseMembersCanUpdateProtectedBranchesSettingInput**: Autogenerated input type of UpdateEnterpriseMembersCanUpdateProtectedBranchesSetting.
+- **UpdateEnterpriseMembersCanViewDependencyInsightsSettingInput**: Autogenerated input type of UpdateEnterpriseMembersCanViewDependencyInsightsSetting.
+- **UpdateEnterpriseOrganizationProjectsSettingInput**: Autogenerated input type of UpdateEnterpriseOrganizationProjectsSetting.
+- **UpdateEnterpriseOwnerOrganizationRoleInput**: Autogenerated input type of UpdateEnterpriseOwnerOrganizationRole.
+- **UpdateEnterpriseProfileInput**: Autogenerated input type of UpdateEnterpriseProfile.
+- **UpdateEnterpriseRepositoryProjectsSettingInput**: Autogenerated input type of UpdateEnterpriseRepositoryProjectsSetting.
+- **UpdateEnterpriseTwoFactorAuthenticationDisallowedMethodsSettingInput**: Autogenerated input type of UpdateEnterpriseTwoFactorAuthenticationDisallowedMethodsSetting.
+- **UpdateEnterpriseTwoFactorAuthenticationRequiredSettingInput**: Autogenerated input type of UpdateEnterpriseTwoFactorAuthenticationRequiredSetting.
+- **UpdateEnvironmentInput**: Autogenerated input type of UpdateEnvironment.
+- **UpdateIpAllowListEnabledSettingInput**: Autogenerated input type of UpdateIpAllowListEnabledSetting.
+- **UpdateIpAllowListEntryInput**: Autogenerated input type of UpdateIpAllowListEntry.
+- **UpdateIpAllowListForInstalledAppsEnabledSettingInput**: Autogenerated input type of UpdateIpAllowListForInstalledAppsEnabledSetting.
+- **UpdateIpAllowListUserLevelEnforcementEnabledSettingInput**: Autogenerated input type of UpdateIpAllowListUserLevelEnforcementEnabledSetting.
+- **UpdateIssueCommentInput**: Autogenerated input type of UpdateIssueComment.
+- **UpdateIssueFieldInput**: Autogenerated input type of UpdateIssueField.
+- **UpdateIssueFieldValueInput**: Autogenerated input type of UpdateIssueFieldValue.
+- **UpdateIssueInput**: Autogenerated input type of UpdateIssue.
+- **UpdateIssueIssueTypeInput**: Autogenerated input type of UpdateIssueIssueType.
+- **UpdateIssueTypeInput**: Autogenerated input type of UpdateIssueType.
+- **UpdateLabelInput**: Autogenerated input type of UpdateLabel.
+- **UpdateNotificationRestrictionSettingInput**: Autogenerated input type of UpdateNotificationRestrictionSetting.
+- **UpdateOrganizationAllowPrivateRepositoryForkingSettingInput**: Autogenerated input type of UpdateOrganizationAllowPrivateRepositoryForkingSetting.
+- **UpdateOrganizationWebCommitSignoffSettingInput**: Autogenerated input type of UpdateOrganizationWebCommitSignoffSetting.
+- **UpdateParametersInput**: Only allow users with bypass permission to update matching refs.
+- **UpdatePatreonSponsorabilityInput**: Autogenerated input type of UpdatePatreonSponsorability.
+- **UpdateProjectCardInput**: Autogenerated input type of UpdateProjectCard.
+- **UpdateProjectColumnInput**: Autogenerated input type of UpdateProjectColumn.
+- **UpdateProjectInput**: Autogenerated input type of UpdateProject.
+- **UpdateProjectV2CollaboratorsInput**: Autogenerated input type of UpdateProjectV2Collaborators.
+- **UpdateProjectV2DraftIssueInput**: Autogenerated input type of UpdateProjectV2DraftIssue.
+- **UpdateProjectV2FieldInput**: Autogenerated input type of UpdateProjectV2Field.
+- **UpdateProjectV2Input**: Autogenerated input type of UpdateProjectV2.
+- **UpdateProjectV2ItemFieldValueInput**: Autogenerated input type of UpdateProjectV2ItemFieldValue.
+- **UpdateProjectV2ItemPositionInput**: Autogenerated input type of UpdateProjectV2ItemPosition.
+- **UpdateProjectV2StatusUpdateInput**: Autogenerated input type of UpdateProjectV2StatusUpdate.
+- **UpdatePullRequestBranchInput**: Autogenerated input type of UpdatePullRequestBranch.
+- **UpdatePullRequestInput**: Autogenerated input type of UpdatePullRequest.
+- **UpdatePullRequestReviewCommentInput**: Autogenerated input type of UpdatePullRequestReviewComment.
+- **UpdatePullRequestReviewInput**: Autogenerated input type of UpdatePullRequestReview.
+- **UpdateRefInput**: Autogenerated input type of UpdateRef.
+- **UpdateRefsInput**: Autogenerated input type of UpdateRefs.
+- **UpdateRepositoryCustomPropertyInput**: Autogenerated input type of UpdateRepositoryCustomProperty.
+- **UpdateRepositoryInput**: Autogenerated input type of UpdateRepository.
+- **UpdateRepositoryRulesetInput**: Autogenerated input type of UpdateRepositoryRuleset.
+- **UpdateRepositoryWebCommitSignoffSettingInput**: Autogenerated input type of UpdateRepositoryWebCommitSignoffSetting.
+- **UpdateSponsorshipPreferencesInput**: Autogenerated input type of UpdateSponsorshipPreferences.
+- **UpdateSubscriptionInput**: Autogenerated input type of UpdateSubscription.
+- **UpdateTeamReviewAssignmentInput**: Autogenerated input type of UpdateTeamReviewAssignment.
+- **UpdateTeamsRepositoryInput**: Autogenerated input type of UpdateTeamsRepository.
+- **UpdateTopicsInput**: Autogenerated input type of UpdateTopics.
+- **UpdateUserListInput**: Autogenerated input type of UpdateUserList.
+- **UpdateUserListsForItemInput**: Autogenerated input type of UpdateUserListsForItem.
+- **UserStatusOrder**: Ordering options for user status connections.
+- **VerifiableDomainOrder**: Ordering options for verifiable domain connections.
+- **VerifyVerifiableDomainInput**: Autogenerated input type of VerifyVerifiableDomain.
+- **WorkflowFileReferenceInput**: A workflow that must run for this rule to pass.
+- **WorkflowRunOrder**: Ways in which lists of workflow runs can be ordered upon return.
+- **WorkflowsParametersInput**: Require all changes made to a targeted branch to pass the specified workflows before they can be merged.
+
+## Scalars
+
+- **Base64String**: A (potentially binary) string encoded using base64.
+- **BigInt**: Represents non-fractional signed whole numeric values. Since the value may
+exceed the size of a 32-bit integer, it's encoded as a string.
+- **Boolean**: Represents `true` or `false` values.
+- **CustomPropertyValue**: A custom property value can be either a string or an array of strings. All
+property types support only a single string value, except for the multi-select
+type, which supports only a string array.
+- **Date**: An ISO-8601 encoded date string.
+- **DateTime**: An ISO-8601 encoded UTC date string.
+- **Float**: Represents signed double-precision fractional values as specified by [IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point).
+- **GitObjectID**: A Git object ID.
+- **GitRefname**: A fully qualified reference name (e.g. `refs/heads/master`).
+- **GitSSHRemote**: Git SSH string.
+- **GitTimestamp**: An ISO-8601 encoded date string. Unlike the DateTime type, GitTimestamp is not converted in UTC.
+- **HTML**: A string containing HTML code.
+- **ID**: Represents a unique identifier that is Base64 obfuscated. It is often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `"VXNlci0xMA=="`) or integer (such as `4`) input value will be accepted as an ID.
+- **Int**: Represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.
+- **PreciseDateTime**: An ISO-8601 encoded UTC date string with millisecond precision.
+- **String**: Represents textual data as UTF-8 character sequences. This type is most often used by GraphQL to represent free-form human-readable text.
+- **URI**: An RFC 3986, RFC 3987, and RFC 6570 (level 4) compliant URI string.
+- **X509Certificate**: A valid x509 certificate string.
