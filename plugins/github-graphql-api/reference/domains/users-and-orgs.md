@@ -1,8 +1,5 @@
 # Users, Organizations & Teams
 
-[← Back to Reference Index](../README.md) | [Full Type Index](../index.md) | [Usage Guide](../guide.md)
-
-
 ## Queries
 
 ### organization
@@ -2143,8 +2140,3 @@ Used for argument of CreateProjectV2 mutation.
 Types that can be added to a user list.
 
 **Possible types:** Repository
-
-
----
-
-**See also:** [Repositories](repositories.md) | [Enterprise](enterprise.md) | [Projects](projects.md) | [Sponsors](sponsors.md)

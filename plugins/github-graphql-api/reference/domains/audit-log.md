@@ -1,8 +1,5 @@
 # Audit Log Events
 
-[← Back to Reference Index](../README.md) | [Full Type Index](../index.md) | [Usage Guide](../guide.md)
-
-
 ## Types
 
 ### MembersCanDeleteReposClearAuditEntry
@@ -2176,8 +2173,3 @@ Types that can initiate an audit log event.
 Types of memberships that can be restored for an Organization member.
 
 **Possible types:** OrgRestoreMemberMembershipOrganizationAuditEntryData, OrgRestoreMemberMembershipRepositoryAuditEntryData, OrgRestoreMemberMembershipTeamAuditEntryData
-
-
----
-
-**See also:** [Enterprise](enterprise.md) | [Users & Orgs](users-and-orgs.md) | [Repositories](repositories.md)

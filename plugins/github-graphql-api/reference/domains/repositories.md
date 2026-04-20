@@ -1,8 +1,5 @@
 # Repositories & Repository Settings
 
-[← Back to Reference Index](../README.md) | [Full Type Index](../index.md) | [Usage Guide](../guide.md)
-
-
 ## Queries
 
 ### codeOfConduct
@@ -2598,8 +2595,3 @@ Represents either a repository the viewer can access or a restricted contributio
 Types that can own a verifiable domain.
 
 **Possible types:** Enterprise, Organization
-
-
----
-
-**See also:** [Issues](issues.md) | [Pull Requests](pull-requests.md) | [Git Objects](git-objects.md) | [Releases](releases.md) | [Security](security.md)

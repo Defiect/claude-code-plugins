@@ -1,8 +1,5 @@
 # GitHub Actions, CI & Deployments
 
-[← Back to Reference Index](../README.md) | [Full Type Index](../index.md) | [Usage Guide](../guide.md)
-
-
 ## Mutations
 
 ### approveDeployments
@@ -1226,8 +1223,3 @@ Users and teams.
 Types that can be inside a StatusCheckRollup context.
 
 **Possible types:** CheckRun, StatusContext
-
-
----
-
-**See also:** [Repositories](repositories.md) | [Pull Requests](pull-requests.md) | [Git Objects](git-objects.md)

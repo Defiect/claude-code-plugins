@@ -1,8 +1,5 @@
 # Issues, Labels & Milestones
 
-[← Back to Reference Index](../README.md) | [Full Type Index](../index.md) | [Usage Guide](../guide.md)
-
-
 ## Mutations
 
 ### addLabelsToLabelable
@@ -2070,8 +2067,3 @@ Types that can be inside a Milestone.
 Possible issue field values for a Project item.
 
 **Possible types:** IssueFieldDateValue, IssueFieldNumberValue, IssueFieldSingleSelectValue, IssueFieldTextValue
-
-
----
-
-**See also:** [Repositories](repositories.md) | [Pull Requests](pull-requests.md) | [Projects](projects.md) | [Users & Orgs](users-and-orgs.md)

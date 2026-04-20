@@ -1,8 +1,5 @@
 # Common Types & Shared Interfaces
 
-[← Back to Reference Index](../README.md) | [Full Type Index](../index.md) | [Usage Guide](../guide.md)
-
-
 ## Queries
 
 ### id
@@ -2729,8 +2726,3 @@ Types which can have `RepositoryRule` objects.
 The results of a search.
 
 **Possible types:** App, Discussion, Issue, MarketplaceListing, Organization, PullRequest, Repository, User
-
-
----
-
-**See also:** [Full Type Index](../index.md)

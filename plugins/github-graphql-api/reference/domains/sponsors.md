@@ -1,8 +1,5 @@
 # GitHub Sponsors
 
-[← Back to Reference Index](../README.md) | [Full Type Index](../index.md) | [Usage Guide](../guide.md)
-
-
 ## Queries
 
 ### sponsorables
@@ -1032,8 +1029,3 @@ Entities that can be sponsored via GitHub Sponsors.
 A record that can be featured on a GitHub Sponsors profile.
 
 **Possible types:** Repository, User
-
-
----
-
-**See also:** [Users & Orgs](users-and-orgs.md)

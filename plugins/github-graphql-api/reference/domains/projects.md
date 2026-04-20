@@ -1,8 +1,5 @@
 # Projects (Classic & V2)
 
-[← Back to Reference Index](../README.md) | [Full Type Index](../index.md) | [Usage Guide](../guide.md)
-
-
 ## Mutations
 
 ### addProjectCard
@@ -1874,8 +1871,3 @@ Types that can be inside Project Items.
 Project field values.
 
 **Possible types:** ProjectV2ItemFieldDateValue, ProjectV2ItemFieldIterationValue, ProjectV2ItemFieldLabelValue, ProjectV2ItemFieldMilestoneValue, ProjectV2ItemFieldNumberValue, ProjectV2ItemFieldPullRequestValue, ProjectV2ItemFieldRepositoryValue, ProjectV2ItemFieldReviewerValue, ProjectV2ItemFieldSingleSelectValue, ProjectV2ItemFieldTextValue, ProjectV2ItemFieldUserValue, ProjectV2ItemIssueFieldValue
-
-
----
-
-**See also:** [Issues](issues.md) | [Pull Requests](pull-requests.md) | [Repositories](repositories.md) | [Users & Orgs](users-and-orgs.md)

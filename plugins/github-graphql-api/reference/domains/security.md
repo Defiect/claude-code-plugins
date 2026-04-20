@@ -1,8 +1,5 @@
 # Security Advisories & Vulnerability Alerts
 
-[← Back to Reference Index](../README.md) | [Full Type Index](../index.md) | [Usage Guide](../guide.md)
-
-
 ## Queries
 
 ### securityAdvisories
@@ -391,8 +388,3 @@ Ordering options for security vulnerability connections.
 
 - **direction** (`OrderDirection!`): The ordering direction.
 - **field** (`SecurityVulnerabilityOrderField!`): The field to order security vulnerabilities by.
-
-
----
-
-**See also:** [Repositories](repositories.md) | [Packages](packages.md)

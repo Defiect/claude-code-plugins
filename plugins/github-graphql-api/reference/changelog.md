@@ -2,6 +2,27 @@
 
 Last 50 changelog entries (most recent first).
 
+## 2026-04-15
+
+**The GraphQL schema includes these changes:**
+
+- Type `ArchivePullRequestInput` was added
+- Input field `clientMutationId` of type `String` was added to input object type `ArchivePullRequestInput`
+- Input field `pullRequestId` of type `ID!` was added to input object type `ArchivePullRequestInput`
+- Type `ArchivePullRequestPayload` was added
+- Field `clientMutationId` was added to object type `ArchivePullRequestPayload`
+- Field `pullRequest` was added to object type `ArchivePullRequestPayload`
+- Type `UnarchivePullRequestInput` was added
+- Input field `clientMutationId` of type `String` was added to input object type `UnarchivePullRequestInput`
+- Input field `pullRequestId` of type `ID!` was added to input object type `UnarchivePullRequestInput`
+- Type `UnarchivePullRequestPayload` was added
+- Field `clientMutationId` was added to object type `UnarchivePullRequestPayload`
+- Field `pullRequest` was added to object type `UnarchivePullRequestPayload`
+- Field `archivePullRequest` was added to object type `Mutation`
+- Argument `input: ArchivePullRequestInput!` added to field `Mutation.archivePullRequest`
+- Field `unarchivePullRequest` was added to object type `Mutation`
+- Argument `input: UnarchivePullRequestInput!` added to field `Mutation.unarchivePullRequest`
+
 ## 2026-04-02
 
 **The GraphQL schema includes these changes:**
@@ -1048,10 +1069,3 @@ Last 50 changelog entries (most recent first).
 
 - Type `BotOrUser` was removed
 - Input field `botIds` of type '[ID!]`was added to input object type`RequestReviewsInput'
-
-## 2025-05-27
-
-**The GraphQL schema includes these changes:**
-
-- Enum value 'ISSUE_COUNT`was added to enum`LabelOrderField'
-- Field `digest` was added to object type `ReleaseAsset`

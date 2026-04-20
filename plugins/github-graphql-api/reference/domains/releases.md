@@ -1,8 +1,5 @@
 # Releases & Release Assets
 
-[← Back to Reference Index](../README.md) | [Full Type Index](../index.md) | [Usage Guide](../guide.md)
-
-
 ## Types
 
 ### Release
@@ -90,8 +87,3 @@ Ways in which lists of releases can be ordered upon return.
 
 - **direction** (`OrderDirection!`): The direction in which to order releases by the specified field.
 - **field** (`ReleaseOrderField!`): The field in which to order releases by.
-
-
----
-
-**See also:** [Repositories](repositories.md) | [Git Objects](git-objects.md)

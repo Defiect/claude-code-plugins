@@ -1,8 +1,5 @@
 # GitHub Packages
 
-[← Back to Reference Index](../README.md) | [Full Type Index](../index.md) | [Usage Guide](../guide.md)
-
-
 ## Mutations
 
 ### deletePackageVersion
@@ -189,8 +186,3 @@ Ways in which lists of package versions can be ordered upon return.
 
 - **direction** (`OrderDirection`): The direction in which to order package versions by the specified field.
 - **field** (`PackageVersionOrderField`): The field in which to order package versions by.
-
-
----
-
-**See also:** [Repositories](repositories.md) | [Security](security.md)

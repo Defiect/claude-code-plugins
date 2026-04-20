@@ -1,8 +1,5 @@
 # Git Objects (Commits, Refs, Trees, Blobs)
 
-[← Back to Reference Index](../README.md) | [Full Type Index](../index.md) | [Usage Guide](../guide.md)
-
-
 ## Queries
 
 ### meta
@@ -978,8 +975,3 @@ Types that can be an actor.
 Any referencable object.
 
 **Possible types:** Issue, PullRequest
-
-
----
-
-**See also:** [Repositories](repositories.md) | [Pull Requests](pull-requests.md) | [Actions & CI](actions-and-ci.md)

@@ -1,8 +1,5 @@
 # GitHub Apps & Marketplace
 
-[← Back to Reference Index](../README.md) | [Full Type Index](../index.md) | [Usage Guide](../guide.md)
-
-
 ## Queries
 
 ### marketplaceCategories
@@ -209,8 +206,3 @@ _These follow the standard Relay connection pattern (see the guide for paginatio
 
 - **MarketplaceListingConnection** (4 fields): Look up Marketplace Listings.
 - **MarketplaceListingEdge** (2 fields): An edge in a connection.
-
-
----
-
-**See also:** [Repositories](repositories.md) | [Users & Orgs](users-and-orgs.md)
