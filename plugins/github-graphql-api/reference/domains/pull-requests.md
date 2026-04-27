@@ -1280,6 +1280,16 @@ Represents a type that can be required by a pull request for merging.
 
 - **isRequired** (`Boolean!`): Whether this is required to pass before merging for a specific pull request.
 
+### TeamReviewRequestable
+
+Represents a team that can be requested to review a pull request.
+
+**Fields:**
+
+- **id** (`ID!`): The Node ID of the TeamReviewRequestable object.
+- **name** (`String!`): The name of the team.
+- **slug** (`String!`): A unique, human-readable identifier for the team.
+
 ## Enums
 
 ### MergeQueueEntryState

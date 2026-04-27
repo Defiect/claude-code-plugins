@@ -2,6 +2,22 @@
 
 Last 50 changelog entries (most recent first).
 
+## 2026-04-24
+
+**The GraphQL schema includes these changes:**
+
+- Type `TeamReviewRequestable` was added
+- Field `id` was added to interface `TeamReviewRequestable`
+- Field `name` was added to interface `TeamReviewRequestable`
+- Field `slug` was added to interface `TeamReviewRequestable`
+- `Team` object implements `TeamReviewRequestable` interface
+
+## 2026-04-23
+
+**The GraphQL schema includes these changes:**
+
+- Input field `id` of type `String` was added to input object type 'ProjectV2SingleSelectFieldOptionInput'
+
 ## 2026-04-15
 
 **The GraphQL schema includes these changes:**
@@ -1057,15 +1073,3 @@ Last 50 changelog entries (most recent first).
 **The GraphQL schema includes these changes:**
 
 - Field `name` was added to object type `Mannequin`
-
-## 2025-06-17
-
-**The GraphQL schema includes these changes:**
-
-
-## 2025-06-13
-
-**The GraphQL schema includes these changes:**
-
-- Type `BotOrUser` was removed
-- Input field `botIds` of type '[ID!]`was added to input object type`RequestReviewsInput'

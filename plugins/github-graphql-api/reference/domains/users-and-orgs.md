@@ -1014,7 +1014,7 @@ Social media profile associated with a user.
 
 A team of users in an organization.
 
-**Implements:** MemberStatusable, Node, Subscribable
+**Implements:** MemberStatusable, Node, Subscribable, TeamReviewRequestable
 
 **Fields:**
 

@@ -1065,7 +1065,7 @@ particular maintainer. Does not inclu...
 
 ## Interfaces
 
-Total: 49 interfaces.
+Total: 50 interfaces.
 
 - **Actor**: Represents an object which can take actions on GitHub. Typically a User or Bot.
 - **Agentic**: Copilot Agentic fields in context of the current viewer.
@@ -1111,6 +1111,7 @@ Total: 49 interfaces.
 - **Subscribable**: Entities that can be subscribed to for web and email notifications.
 - **SubscribableThread**: Entities that can be subscribed to for web and email notifications.
 - **TeamAuditEntryData**: Metadata for an audit entry with action team.*.
+- **TeamReviewRequestable**: Represents a team that can be requested to review a pull request.
 - **TopicAuditEntryData**: Metadata for an audit entry with a topic.
 - **UniformResourceLocatable**: Represents a type that can be retrieved by a URL.
 - **Updatable**: Entities that can be updated.

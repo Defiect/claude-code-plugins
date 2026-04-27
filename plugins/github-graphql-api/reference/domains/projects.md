@@ -1682,6 +1682,8 @@ Represents a single select field option.
 
 - **color** (`ProjectV2SingleSelectFieldOptionColor!`): The display color of the option.
 - **description** (`String!`): The description text of the option.
+- **id** (`String`): The ID of an existing single select option. Include this to preserve the
+option's identity during updates, preventing item field values from being cleared.
 - **name** (`String!`): The name of the option.
 
 ### ProjectV2StatusOrder
