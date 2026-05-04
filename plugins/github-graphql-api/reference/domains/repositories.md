@@ -1266,6 +1266,7 @@ A team or app that has the ability to bypass a rules defined on a ruleset.
 - **bypassMode** (`RepositoryRulesetBypassActorBypassMode`): The mode for the bypass actor.
 - **deployKey** (`Boolean!`): This actor represents the ability for a deploy key to bypass.
 - **enterpriseOwner** (`Boolean!`): This actor represents the ability for an enterprise owner to bypass.
+- **enterpriseRole** (`Boolean!`): This actor represents the ability for an enterprise role to bypass.
 - **id** (`ID!`): The Node ID of the RepositoryRulesetBypassActor object.
 - **organizationAdmin** (`Boolean!`): This actor represents the ability for an organization owner to bypass.
 - **repositoryRoleDatabaseId** (`Int`): If the actor is a repository role, the repository role's ID that can bypass.
@@ -2276,6 +2277,7 @@ should be specified.
 - **bypassMode** (`RepositoryRulesetBypassActorBypassMode!`): The bypass mode for this actor.
 - **deployKey** (`Boolean`): For deploy key bypasses, true. Can only use ALWAYS as the bypass mode.
 - **enterpriseOwner** (`Boolean`): For enterprise owner bypasses, true.
+- **enterpriseRole** (`Boolean`): For enterprise role bypasses, true. NOTE: This bypass actor is in beta.
 - **organizationAdmin** (`Boolean`): For organization owner bypasses, true.
 - **repositoryRoleDatabaseId** (`Int`): For role bypasses, the role database ID.
 

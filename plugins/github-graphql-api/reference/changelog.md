@@ -2,6 +2,13 @@
 
 Last 50 changelog entries (most recent first).
 
+## 2026-04-27
+
+**The GraphQL schema includes these changes:**
+
+- Field `enterpriseRole` was added to object type `RepositoryRulesetBypassActor`
+- Input field `enterpriseRole` of type `Boolean` was added to input object type `RepositoryRulesetBypassActorInput`
+
 ## 2026-04-24
 
 **The GraphQL schema includes these changes:**
@@ -1067,9 +1074,3 @@ Last 50 changelog entries (most recent first).
 **The GraphQL schema includes these changes:**
 
 - Field `immutable` was added to object type `Release`
-
-## 2025-06-25
-
-**The GraphQL schema includes these changes:**
-
-- Field `name` was added to object type `Mannequin`
