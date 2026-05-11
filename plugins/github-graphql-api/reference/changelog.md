@@ -2,6 +2,12 @@
 
 Last 50 changelog entries (most recent first).
 
+## 2026-05-08
+
+**The GraphQL schema includes these changes:**
+
+- Enum value `UNKNOWN` was added to enum `SecurityAdvisorySeverity`
+
 ## 2026-04-27
 
 **The GraphQL schema includes these changes:**
@@ -1068,9 +1074,3 @@ Last 50 changelog entries (most recent first).
 
 - Directive `deprecated` was removed from field `ClosedEvent.stateReason`
 - Directive `deprecated` was removed from field `Issue.stateReason`
-
-## 2025-07-04
-
-**The GraphQL schema includes these changes:**
-
-- Field `immutable` was added to object type `Release`

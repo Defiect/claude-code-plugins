@@ -328,6 +328,7 @@ Severity of the vulnerability.
 - `HIGH`: High.
 - `LOW`: Low.
 - `MODERATE`: Moderate.
+- `UNKNOWN`: Unknown.
 
 ### SecurityVulnerabilityOrderField
 

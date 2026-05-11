@@ -1256,7 +1256,7 @@ A repository ruleset.
 
 ### RepositoryRulesetBypassActor
 
-A team or app that has the ability to bypass a rules defined on a ruleset.
+A team, app or user that has the ability to bypass rules defined on a ruleset.
 
 **Implements:** Node
 
@@ -1535,7 +1535,9 @@ The possible values for the enterprise allow private repository forking policy v
 
 - `ENTERPRISE_ORGANIZATIONS`: Members can fork a repository to an organization within this enterprise.
 - `ENTERPRISE_ORGANIZATIONS_USER_ACCOUNTS`: Members can fork a repository to their enterprise-managed user account or an organization inside this enterprise.
-- `EVERYWHERE`: Members can fork a repository to their user account or an organization, either inside or outside of this enterprise.
+- `EVERYWHERE`: Members can fork a repository to their user account or an organization, either
+inside or outside of this enterprise. Internal repositories can only be forked
+inside of this enterprise.
 - `SAME_ORGANIZATION`: Members can fork a repository only within the same organization (intra-org).
 - `SAME_ORGANIZATION_USER_ACCOUNTS`: Members can fork a repository to their user account or within the same organization.
 - `USER_ACCOUNTS`: Members can fork a repository to their user account.
@@ -2273,7 +2275,7 @@ should be specified.
 
 **Input fields:**
 
-- **actorId** (`ID`): For Team and Integration bypasses, the Team or Integration ID.
+- **actorId** (`ID`): For Team, Integration and User bypasses, the Team, Integration, or User ID.
 - **bypassMode** (`RepositoryRulesetBypassActorBypassMode!`): The bypass mode for this actor.
 - **deployKey** (`Boolean`): For deploy key bypasses, true. Can only use ALWAYS as the bypass mode.
 - **enterpriseOwner** (`Boolean`): For enterprise owner bypasses, true.

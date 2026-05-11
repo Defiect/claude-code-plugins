@@ -903,7 +903,7 @@ to showing the most popular repositor...
 - **RepositoryRuleConnection** (4 fields): The connection type for RepositoryRule.
 - **RepositoryRuleEdge** (2 fields): An edge in a connection.
 - **RepositoryRuleset** (11 fields): A repository ruleset.
-- **RepositoryRulesetBypassActor** (10 fields): A team or app that has the ability to bypass a rules defined on a ruleset.
+- **RepositoryRulesetBypassActor** (10 fields): A team, app or user that has the ability to bypass rules defined on a ruleset.
 - **RepositoryRulesetBypassActorConnection** (4 fields): The connection type for RepositoryRulesetBypassActor.
 - **RepositoryRulesetBypassActorEdge** (2 fields): An edge in a connection.
 - **RepositoryRulesetConnection** (4 fields): The connection type for RepositoryRuleset.
@@ -1325,7 +1325,7 @@ Total: 245 enums.
 - **SecurityAdvisoryEcosystem**: ACTIONS, COMPOSER, ERLANG, GO, MAVEN, NPM, NUGET, PIP, ... (12 total)
 - **SecurityAdvisoryIdentifierType**: CVE, GHSA
 - **SecurityAdvisoryOrderField**: EPSS_PERCENTAGE, EPSS_PERCENTILE, PUBLISHED_AT, UPDATED_AT
-- **SecurityAdvisorySeverity**: CRITICAL, HIGH, LOW, MODERATE
+- **SecurityAdvisorySeverity**: CRITICAL, HIGH, LOW, MODERATE, UNKNOWN
 - **SecurityVulnerabilityOrderField**: UPDATED_AT
 - **SocialAccountProvider**: BLUESKY, FACEBOOK, GENERIC, HOMETOWN, INSTAGRAM, LINKEDIN, MASTODON, NPM, ... (12 total)
 - **SponsorAndLifetimeValueOrderField**: LIFETIME_VALUE, SPONSOR_LOGIN, SPONSOR_RELEVANCE
